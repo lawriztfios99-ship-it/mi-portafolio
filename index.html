@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lau Ocampo | Marketing Digital, Meta Ads y Diseño en Medellín</title>
+<meta name="description" content="Laura Ocampo Franco (Lau), especialista en marketing digital en Medellín: Meta Ads, TikTok Ads, Google Ads, landing pages, redes sociales, diseño gráfico, edición de videos con IA y mentorías.">
+<meta name="theme-color" content="#2a2a2c">
+<meta name="keywords" content="marketing digital Medellín, Meta Ads, TikTok Ads, Google Ads, landing page, redes sociales, community manager, diseño gráfico, marketing inmobiliario, SEO, mentorías de marketing digital, freelance">
+<meta name="author" content="Laura Ocampo Franco">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lau Ocampo | Marketing Digital, Meta Ads y Diseño en Medellín">
+<meta property="og:description" content="Marketing digital, Meta Ads, landing pages, redes sociales y videos con IA para que tu marca destaque y venda más.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@600&family=Raleway:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#2a2a2c; --bg2:#323235; --ink:#f6f3fa; --muted:#bdb8c6;
+  --mar:#9fd8e6; --lila:#c9b3f0; --rosa:#f6b8d1; --menta:#b8ecd2;
+  --radius:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:'Raleway',sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;overflow-x:hidden;font-size:clamp(15px,1.6vw,17px);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+.wrap{width:min(1120px,calc(100% - 36px));margin-inline:auto}
+section{padding:clamp(70px,10vw,115px) 0;position:relative}
+h1,h2,h3{font-family:'Archivo Black',sans-serif;line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,5.4vw,3.8rem);margin-bottom:14px}
+.script{font-family:'Caveat',cursive;font-size:clamp(1.3rem,3vw,1.8rem);color:var(--rosa)}
+.eyebrow{display:inline-flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:.75rem;color:var(--lila);margin-bottom:14px}
+.star{width:18px;height:18px;background:var(--lila);clip-path:polygon(50% 0,60% 35%,95% 20%,70% 50%,95% 80%,60% 65%,50% 100%,40% 65%,5% 80%,30% 50%,5% 20%,40% 35%)}
+.lead{color:var(--muted);max-width:640px;font-size:1.05rem}
+.grad{background:linear-gradient(90deg,var(--mar),var(--lila),var(--rosa),var(--menta),var(--mar));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s linear infinite}
+@keyframes shine{to{background-position:250% 0}}
+#progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:100;background:linear-gradient(90deg,var(--mar),var(--lila),var(--rosa),var(--menta))}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(201,179,240,.20),transparent 65%);transform:translate(-50%,-50%);opacity:0}
+@media(hover:hover){#glow{opacity:1}}
+
+/* NAV */
+nav{position:fixed;inset:12px 0 auto;z-index:60;display:flex;justify-content:center;padding-inline:12px}
+.bar{display:flex;gap:6px;align-items:center;padding:8px 10px;border-radius:999px;background:rgba(42,42,44,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);position:relative}
+.brand{font-family:'Archivo Black';font-size:.85rem;padding:8px 14px;color:var(--lila)}
+.links{display:flex;gap:2px;align-items:center}
+.links a{padding:8px 13px;border-radius:999px;font-size:.8rem;font-weight:600;color:var(--muted);transition:.25s;white-space:nowrap}
+.links a:hover,.links a.on{background:var(--lila);color:#2a2a2c}
+.links .cta{background:var(--menta);color:#2a2a2c}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--lila);cursor:pointer;position:relative}
+.burger span{position:absolute;left:12px;right:12px;height:2px;background:#2a2a2c;border-radius:2px;transition:.3s}
+.burger span:first-child{top:18px}.burger span:last-child{top:25px}
+.burger[aria-expanded=true] span:first-child{top:21px;transform:rotate(45deg)}
+.burger[aria-expanded=true] span:last-child{top:21px;transform:rotate(-45deg)}
+@media(max-width:980px){
+  .bar{width:100%;justify-content:space-between;border-radius:26px}
+  .burger{display:block}
+  .links{position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;align-items:stretch;padding:12px;border-radius:24px;background:rgba(42,42,44,.96);border:1px solid rgba(255,255,255,.14);display:none}
+  .links.open{display:flex;animation:pop .3s ease}
+  .links a{padding:14px 16px;font-size:1rem;text-align:center}
+}
+
+/* HERO */
+.hero{min-height:100svh;display:flex;align-items:center;padding:110px 0 60px;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(5.5rem,21vw,13rem);color:#fff;line-height:.85;letter-spacing:-.04em}
+.hero h1 .l{display:inline-block;opacity:0;transform:translateY(60px) rotate(8deg)}
+body.go .hero h1 .l{animation:letter .9s cubic-bezier(.2,.9,.3,1.3) forwards}
+@keyframes letter{to{opacity:1;transform:none}}
+.hero .agency{display:inline-block;margin-bottom:6px}
+.role{font-weight:800;color:var(--menta);min-height:1.7em;font-size:clamp(1rem,2.6vw,1.3rem);margin:14px 0 6px}
+.hero p.lead{margin:6px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 28px;border-radius:999px;font-weight:800;border:2px solid var(--lila);transition:.3s;cursor:pointer;background:transparent;color:var(--ink);font-size:.98rem;min-height:48px}
+.btn.fill{background:var(--lila);color:#2a2a2c}
+.btn:hover{box-shadow:0 14px 30px rgba(201,179,240,.28)}
+.photo{position:relative;justify-self:center;width:min(390px,82%)}
+.frame{aspect-ratio:4/5;border-radius:200px 200px 28px 28px;overflow:hidden;background:linear-gradient(160deg,var(--mar),var(--lila) 45%,var(--rosa));display:grid;place-items:center;font-family:'Archivo Black';font-size:5rem;color:#2a2a2c;border:3px solid rgba(255,255,255,.15)}
+.frame img{width:100%;height:100%;object-fit:cover}
+.sticker{position:absolute;background:#fff;color:#2a2a2c;font-weight:800;font-size:.8rem;padding:8px 14px;border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.35);will-change:transform}
+.s1{left:-26px;bottom:76px;--r:-7deg}
+.s2{right:-16px;top:46px;--r:6deg;background:var(--menta)}
+.s3{right:-24px;bottom:22px;--r:-4deg;background:var(--rosa)}
+.sticker{transform:rotate(var(--r))}
+.doll{position:absolute;left:-70px;top:-26px;width:130px;animation:bob 4s ease-in-out infinite;filter:drop-shadow(0 12px 18px rgba(0,0,0,.35))}
+@keyframes bob{50%{transform:translateY(-14px) rotate(4deg)}}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.33;z-index:-1;animation:float 12s ease-in-out infinite}
+.b1{width:340px;height:340px;background:var(--mar);top:8%;left:-120px}
+.b2{width:300px;height:300px;background:var(--rosa);bottom:6%;right:-80px;animation-delay:-5s}
+.b3{width:240px;height:240px;background:var(--menta);top:50%;left:45%;animation-delay:-8s}
+@keyframes float{50%{transform:translate(30px,-34px) scale(1.1)}}
+.scroll-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;animation:bob 2.4s ease-in-out infinite}
+@media(max-width:820px){
+  .hero{padding-top:100px}
+  .hero .grid{grid-template-columns:1fr;text-align:center}
+  .btns{justify-content:center}
+  .photo{order:-1;width:min(250px,64%)}
+  .doll{width:90px;left:-52px}
+  .lead{margin-inline:auto}
+  .scroll-hint{display:none}
+}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* SPLASH */
+#splash{position:fixed;inset:0;z-index:300;background:var(--bg);display:grid;place-items:center;text-align:center;cursor:pointer;transition:opacity .7s,visibility .7s;animation:splashOut .7s 3.4s forwards}
+#splash.gone{opacity:0;visibility:hidden}
+@keyframes splashOut{to{opacity:0;visibility:hidden}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.sp small{display:block;font-family:'Archivo Black';letter-spacing:.35em;text-transform:uppercase;font-size:clamp(.7rem,3vw,1.1rem);color:var(--lila);opacity:0;animation:fadeUp .8s .2s forwards}
+.sp b{display:block;font-family:'Archivo Black';font-size:clamp(5rem,28vw,14rem);line-height:1;opacity:0;animation:fadeUp .9s .6s forwards,shine 5s linear infinite}
+.sp .script{opacity:0;animation:fadeUp .8s 1.2s forwards}
+.fullname{font-family:'Archivo Black';letter-spacing:.32em;text-transform:uppercase;font-size:clamp(.75rem,2.6vw,1.2rem);color:var(--ink);margin:10px 0 4px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pills a{padding:8px 15px;border-radius:999px;font-size:.8rem;font-weight:800;color:#2a2a2c;background:var(--c);transition:.3s}
+.pills a:hover{transform:translateY(-4px) rotate(-2deg)}
+.mini{display:flex;gap:22px;flex-wrap:wrap;margin-top:20px;color:var(--muted);font-size:.9rem}
+.mini b{font-family:'Archivo Black';color:#fff;font-size:1.4rem;margin-right:4px}
+.band{margin-top:50px;padding:clamp(20px,4vw,30px) clamp(20px,4vw,34px);border-radius:30px;background:linear-gradient(135deg,rgba(159,216,230,.18),rgba(201,179,240,.22),rgba(246,184,209,.18),rgba(184,236,210,.18));border:2px solid rgba(255,255,255,.16);display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.band h3{font-size:clamp(1.15rem,3.4vw,1.6rem);margin-bottom:4px}
+.band p{color:var(--muted)}
+@media(max-width:820px){.pills,.mini{justify-content:center}.band{justify-content:center;text-align:center}}
+
+/* FLOTANTES */
+.hero .wrap{position:relative;z-index:1}
+.floaters{position:absolute;inset:0;z-index:0;pointer-events:none}
+.fl{position:absolute;width:calc(var(--s)*1px);transition:translate .5s ease-out}
+.fl .in{width:100%;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(150deg,var(--c),#fff);border:4px solid #fff;box-shadow:0 16px 34px rgba(0,0,0,.4);display:grid;place-items:center;font-size:2.2rem;color:#2a2a2c;transform:rotate(var(--rot));animation:drift var(--dur) ease-in-out infinite}
+.fl .in img{width:100%;height:100%;object-fit:cover}
+.fl .in.cut{background:none;border:0;box-shadow:none;overflow:visible;border-radius:0!important;filter:drop-shadow(0 14px 22px rgba(0,0,0,.45))}
+.fl .in.cut img{object-fit:contain}
+.fl.br .in{aspect-ratio:auto;background:none;border:0;box-shadow:none;overflow:visible;filter:drop-shadow(0 10px 14px rgba(0,0,0,.35))}
+.fl.st .in{aspect-ratio:1;background:var(--c);border:0;box-shadow:none;clip-path:polygon(50% 0,60% 35%,95% 20%,70% 50%,95% 80%,60% 65%,50% 100%,40% 65%,5% 80%,30% 50%,5% 20%,40% 35%)}
+@keyframes drift{50%{transform:translateY(-18px) rotate(calc(var(--rot) + 6deg))}}
+@media(min-width:821px) and (max-width:1279px){.fl.xl{display:none}}
+@media(max-width:820px){.fl{width:calc(var(--s)*.55px)}.fl.br{opacity:.75}}
+.brands{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;margin-top:26px}
+.brand-tile{display:grid;place-items:center;min-height:90px;padding:14px;border-radius:var(--radius);background:var(--bg2);border:1px solid rgba(255,255,255,.1);text-align:center;font-family:'Archivo Black';font-size:.9rem;color:var(--muted);transition:.3s}
+.brand-tile img{max-height:48px;width:auto;filter:grayscale(1) brightness(1.6);transition:.3s}
+.brand-tile:hover{transform:translateY(-6px) rotate(-1.5deg);border-color:var(--c);color:#fff}
+.brand-tile:hover img{filter:none}
+
+/* MARQUEE */
+.marquee{overflow:hidden;border-block:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);padding:16px 0;position:relative;z-index:1}
+.marquee .track{display:flex;gap:40px;width:max-content;animation:slide 34s linear infinite;font-family:'Archivo Black';font-size:clamp(1.1rem,3vw,1.5rem);text-transform:uppercase}
+.marquee span:nth-child(4n+1){color:var(--mar)}.marquee span:nth-child(4n+2){color:var(--lila)}.marquee span:nth-child(4n+3){color:var(--rosa)}.marquee span:nth-child(4n){color:var(--menta)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ABOUT */
+.about .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,56px);align-items:start}
+.about p{color:var(--muted);margin-bottom:16px}
+.about p b{color:#fff}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{padding:clamp(16px,3vw,26px);border-radius:var(--radius);background:var(--bg2);border:1px solid rgba(255,255,255,.1);transition:.3s}
+.stat:nth-child(1){border-color:var(--mar)}.stat:nth-child(2){border-color:var(--lila)}.stat:nth-child(3){border-color:var(--rosa)}.stat:nth-child(4){border-color:var(--menta)}
+.stat:hover{transform:translateY(-6px) rotate(-1deg)}
+.stat b{display:block;font-family:'Archivo Black';font-size:clamp(1.9rem,5vw,2.7rem)}
+.stat span{color:var(--muted);font-size:.88rem;line-height:1.3;display:block}
+.polas{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.pola{background:#fff;padding:8px 8px 26px;border-radius:6px;box-shadow:0 14px 30px rgba(0,0,0,.4);transform:rotate(var(--r));transition:.35s;position:relative}
+.pola:hover{transform:rotate(0) scale(1.07);z-index:2}
+.pola:before{content:"";position:absolute;top:-9px;left:50%;width:54px;height:18px;transform:translateX(-50%) rotate(-3deg);background:rgba(246,184,209,.85)}
+.pola:nth-child(2):before{background:rgba(159,216,230,.85)}.pola:nth-child(3):before{background:rgba(184,236,210,.85)}
+.pola .ph{aspect-ratio:3/4;background:linear-gradient(150deg,var(--c),#fff);display:grid;place-items:center;font-size:1.6rem;overflow:hidden;color:#2a2a2c}
+.pola .ph img{width:100%;height:100%;object-fit:cover}
+@media(max-width:820px){.about .grid{grid-template-columns:1fr}}
+
+/* HERRAMIENTAS */
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:14px;margin-top:34px}
+.tool{padding:18px 10px;border-radius:var(--radius);background:var(--bg2);border:1px solid rgba(255,255,255,.1);text-align:center;transition:.3s}
+.tool:hover{transform:translateY(-8px) rotate(-3deg);border-color:var(--c)}
+.tool i{display:grid;place-items:center;width:54px;height:54px;margin:0 auto 10px;border-radius:15px;background:var(--c);color:#2a2a2c;font:normal 900 1.1rem 'Archivo Black'}
+.tool span{font-size:.82rem;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{padding:10px 18px;border-radius:999px;font-weight:800;font-size:.88rem;color:#2a2a2c;background:var(--c);transition:.3s;cursor:default}
+.chip:hover{transform:scale(1.08) rotate(-3deg)}
+.sub{font-family:'Archivo Black';font-size:1.2rem;margin-top:46px;color:var(--rosa)}
+
+/* TIMELINE */
+.timeline{margin-top:40px;position:relative;padding-left:32px}
+.timeline:before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--mar),var(--lila),var(--rosa),var(--menta))}
+.tl{position:relative;padding:clamp(16px,3vw,24px) clamp(16px,3vw,26px);margin-bottom:16px;border-radius:var(--radius);background:var(--bg2);border:1px solid rgba(255,255,255,.1);transition:.3s}
+.tl:hover{transform:translateX(8px);border-color:var(--c,var(--lila))}
+.tl:before{content:"";position:absolute;left:-32px;top:28px;width:18px;height:18px;border-radius:50%;background:var(--c,var(--lila));box-shadow:0 0 0 5px rgba(201,179,240,.18)}
+.tl small{color:var(--c,var(--lila));font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem}
+.tl h3{font-size:clamp(1.1rem,3vw,1.4rem);margin:6px 0 2px}
+.tl .org{color:#fff;font-weight:800;font-size:.9rem}
+.tl p{color:var(--muted);margin-top:8px;font-size:.95rem}
+.tl .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tl .tags em{font-style:normal;font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.08);color:var(--c,var(--lila))}
+
+/* SERVICIOS */
+.tabs{display:flex;gap:10px;margin:30px -18px 22px;padding:4px 18px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+@media(min-width:900px){.tabs{flex-wrap:wrap;margin-inline:0;padding-inline:0;overflow:visible}}
+.tab{flex:0 0 auto;cursor:pointer;border:2px solid rgba(255,255,255,.18);background:transparent;color:var(--ink);padding:11px 20px;border-radius:999px;font:800 .9rem 'Raleway';transition:.25s;min-height:46px}
+.tab:hover{border-color:var(--c)}
+.tab.on{background:var(--c);border-color:var(--c);color:#2a2a2c}
+.panel{display:none;grid-template-columns:1.1fr .9fr;gap:28px;padding:clamp(20px,4vw,36px);border-radius:30px;background:var(--bg2);border:2px solid var(--c);animation:pop .5s ease}
+.panel.on{display:grid}
+@keyframes pop{from{opacity:0;transform:translateY(16px)}}
+.panel h3{font-size:clamp(1.4rem,4vw,2rem);color:var(--c);margin-bottom:10px}
+.panel p{color:var(--muted);margin-bottom:14px}
+.panel ul{list-style:none;display:grid;gap:9px}
+.panel li{padding-left:28px;position:relative}
+.panel li:before{content:"✦";position:absolute;left:0;color:var(--c)}
+.ejemplo{padding:22px;border-radius:20px;background:rgba(255,255,255,.05);border:1px dashed var(--c);align-self:start}
+.ejemplo h4{font-family:'Archivo Black';color:var(--c);margin-bottom:8px;font-size:1rem}
+.ejemplo .big{font-family:'Archivo Black';font-size:clamp(1.6rem,5vw,2.3rem);color:#fff;line-height:1.1}
+.ejemplo small{color:var(--muted)}
+@media(max-width:820px){.panel.on{grid-template-columns:1fr}}
+
+/* GALERIA */
+.filters{display:flex;gap:10px;margin:28px -18px 26px;padding:4px 18px;overflow-x:auto;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+@media(min-width:900px){.filters{flex-wrap:wrap;margin-inline:0;padding-inline:0;overflow:visible}}
+.fbtn{flex:0 0 auto;cursor:pointer;border:2px solid rgba(255,255,255,.2);background:transparent;color:var(--ink);padding:9px 18px;border-radius:999px;font:800 .84rem 'Raleway';transition:.25s;min-height:42px}
+.fbtn.on,.fbtn:hover{background:var(--lila);border-color:var(--lila);color:#2a2a2c}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:18px}
+.card{border-radius:var(--radius);overflow:hidden;background:var(--bg2);border:1px solid rgba(255,255,255,.1);transition:transform .25s ease,border-color .25s;cursor:pointer;text-align:left;color:inherit;padding:0;display:block;width:100%}
+.card:hover{border-color:var(--c)}
+.card .thumb{aspect-ratio:4/5;background:linear-gradient(135deg,var(--c),rgba(255,255,255,.08));display:grid;place-items:center;font-size:3rem;position:relative;overflow:hidden}
+.card .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .thumb img{transform:scale(1.07)}
+.badge{position:absolute;top:10px;right:10px;background:rgba(42,42,44,.85);color:#fff;font-weight:800;font-size:.72rem;padding:5px 10px;border-radius:999px}
+.card .body{padding:14px 18px 18px}
+.tag{display:block;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
+.card h3{font-size:1.08rem;margin:4px 0 2px}
+.card p{color:var(--muted);font-size:.85rem}
+.card.hide{display:none}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(20,20,22,.94);display:none;align-items:center;justify-content:center;padding:16px;flex-direction:column;gap:14px}
+.lb.open{display:flex;animation:pop .3s}
+.lb .stage{width:min(560px,100%);max-height:72svh;display:grid;place-items:center;position:relative;touch-action:pan-y}
+.lb .stage img{max-height:72svh;width:auto;max-width:100%;border-radius:16px;object-fit:contain}
+.lb .ph{width:min(360px,80vw);aspect-ratio:4/5;border-radius:20px;background:linear-gradient(135deg,var(--c),#fff);display:grid;place-items:center;font-size:4rem;color:#2a2a2c;text-align:center;padding:20px;font-family:'Archivo Black';font-size:1.3rem}
+.lb .cap{text-align:center;max-width:520px}
+.lb .cap b{font-family:'Archivo Black'}
+.lb .cap p{color:var(--muted);font-size:.9rem}
+.lb button{position:absolute;border:0;border-radius:50%;width:48px;height:48px;background:var(--lila);color:#2a2a2c;font-size:1.3rem;font-weight:900;cursor:pointer}
+.lb .x{top:14px;right:14px;background:var(--rosa)}
+.lb .pv{left:12px;top:50%}.lb .nx{right:12px;top:50%}
+.lb .dots{display:flex;gap:7px}
+.lb .dots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3)}
+.lb .dots i.on{background:var(--menta);transform:scale(1.3)}
+.lb .go{display:inline-block;margin-top:6px;font-weight:800;color:var(--menta)}
+
+/* TESTIMONIOS */
+.tcar{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 4px 26px;margin-top:30px;scrollbar-width:thin;scrollbar-color:var(--lila) transparent}
+.tv{flex:0 0 min(280px,76vw);scroll-snap-align:start;border-radius:26px;background:var(--bg2);border:2px solid var(--c);overflow:hidden;transition:transform .3s}
+.tv:hover{transform:translateY(-8px) rotate(-1deg)}
+.tv .vid{aspect-ratio:9/16;position:relative;background:linear-gradient(160deg,var(--c),rgba(255,255,255,.08));cursor:pointer;display:grid;place-items:center}
+.tv .vid.wide{aspect-ratio:16/10}
+.tv .vid img,.tv .vid video,.tv .vid iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.play{position:relative;width:70px;height:70px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(0,0,0,.35);transition:.3s}
+.play:before{content:"";border-left:20px solid #2a2a2c;border-block:12px solid transparent;margin-left:6px}
+.tv .vid:hover .play{transform:scale(1.15)}
+.tv .info{padding:16px 20px 22px}
+.tv .info p{font-size:.95rem;margin-bottom:10px}
+.tv .info b{display:block;color:var(--c);font-family:'Archivo Black'}
+.tv .info small{color:var(--muted)}
+
+/* PROCESO */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px;margin-top:36px}
+.step{padding:26px;border-radius:var(--radius);background:var(--bg2);border:1px solid rgba(255,255,255,.1);transition:.3s}
+.step:hover{transform:translateY(-8px) rotate(1deg);border-color:var(--c)}
+.step b{font-family:'Archivo Black';font-size:2.6rem;color:var(--c)}
+.step h3{font-size:1.15rem;margin:6px 0}
+.step p{color:var(--muted);font-size:.93rem}
+
+/* CONTACTO */
+.contact .box{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,50px);padding:clamp(26px,6vw,60px);border-radius:36px;background:linear-gradient(135deg,rgba(159,216,230,.16),rgba(201,179,240,.2),rgba(246,184,209,.16),rgba(184,236,210,.16));border:2px solid rgba(255,255,255,.15)}
+.contact h2{font-size:clamp(2rem,6vw,4rem)}
+.contact .left .lead{margin:6px 0 22px}
+.links2{display:flex;flex-wrap:wrap;gap:10px}
+form{display:grid;gap:12px}
+label{font-weight:800;font-size:.82rem;color:var(--lila)}
+input,select,textarea{width:100%;padding:14px 16px;border-radius:16px;border:2px solid rgba(255,255,255,.18);background:rgba(42,42,44,.7);color:var(--ink);font:inherit;font-size:16px;transition:.25s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--menta);box-shadow:0 0 0 4px rgba(184,236,210,.16)}
+textarea{min-height:110px;resize:vertical}
+#msg{font-weight:800;color:var(--menta);min-height:1.3em;font-size:.92rem}
+@media(max-width:820px){.contact .box{grid-template-columns:1fr;text-align:center}.links2{justify-content:center}.contact .left .lead{margin-inline:auto}form{text-align:left}}
+footer{padding:36px 0 90px;text-align:center;color:var(--muted);font-size:.85rem}
+.fab{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:55;background:var(--menta);color:#2a2a2c;font-weight:800;padding:14px 22px;border-radius:999px;box-shadow:0 12px 30px rgba(0,0,0,.4);transform:translateY(120px);transition:.4s;min-height:48px}
+.fab.show{transform:none}
+.fab:hover{background:var(--rosa)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv,.hero h1 .l{opacity:1;transform:none}#splash{display:none}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Laura Ocampo Franco","alternateName":"Lau Ocampo",
+ "jobTitle":"Especialista en marketing digital y diseño","description":"Marketing digital, Meta Ads, TikTok Ads, Google Ads, landing pages, redes sociales, diseño gráfico y videos con IA.",
+ "address":{"@type":"PostalAddress","addressLocality":"Medellín","addressRegion":"Antioquia","addressCountry":"CO"},
+ "knowsAbout":["Marketing digital","Meta Ads","TikTok Ads","Google Ads","Landing pages","Redes sociales","SEO","Diseño gráfico","Marketing inmobiliario","Edición de video","Inteligencia artificial"],
+ "areaServed":["Colombia","Estados Unidos"]}
+</script>
+</head>
+<body>
+<div id="progress"></div>
+<div id="glow"></div>
+<div id="splash" aria-hidden="true"><div class="sp"><small>Laura Ocampo Franco</small><b class="grad">LAU</b><span class="script">Tu visión es mi misión</span></div></div>
+
+<nav><div class="bar">
+  <a href="#inicio" class="brand">LAU ✦</a>
+  <div class="links" id="links">
+    <a href="#quien">Quién soy</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#herramientas">Habilidades</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#contacto" class="cta">Hablemos</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
+</div></nav>
+
+<!-- HERO -->
+<header class="hero" id="inicio">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="floaters" id="floaters" aria-hidden="true"></div>
+  <div class="wrap grid">
+    <div>
+      <span class="script agency">¡Hola, soy Lau! ✦ Marketing digital, Meta Ads y diseño</span>
+      <h1 id="name"><span class="sr">Laura Ocampo Franco (Lau), especialista en marketing digital, Meta Ads y diseño en Medellín</span><span id="nameL" aria-hidden="true"></span></h1><div class="fullname">Laura Ocampo Franco</div>
+      <div class="role"><span id="typed"></span></div>
+      <p class="lead"><b>Marketing digital</b> en Medellín y Estados Unidos: Meta Ads, landing pages, redes sociales y videos con IA para que tu negocio se vea increíble y <b>venda más</b>.</p>
+      <div class="btns">
+        <a class="btn fill mag" href="#contacto">Cotiza tu proyecto ✦</a>
+        <a class="btn mag" href="#proyectos">Ver mis proyectos</a>
+      </div>
+      <div class="pills" id="pills"></div>
+      <div class="mini"><span><b>6+</b> años</span><span><b>10+</b> marcas</span><span><b>100+</b> proyectos</span>
+      </div>
+    </div>
+    <div class="photo" id="photo">
+      <div class="frame"><img src="assets/laura.jpg" alt="Laura Ocampo Franco, especialista en marketing digital en Medellín" onerror="this.remove();this.parentNode.textContent='LO'"></div>
+      <img class="doll" src="assets/muneca.png" alt="" onerror="this.remove()">
+      <span class="sticker s1" data-d="14">Tu visión es mi misión ✦</span>
+      <span class="sticker s2" data-d="-10">Medellín, Colombia 🇨🇴</span>
+      <span class="sticker s3" data-d="18">¡Qué chimba!</span>
+    </div>
+  </div>
+  <div class="scroll-hint">Desliza ↓</div>
+</header>
+
+<div class="marquee"><div class="track" id="marq"></div></div>
+
+<!-- QUIEN SOY -->
+<section class="about" id="quien">
+  <div class="wrap grid">
+    <div class="rv">
+      <div class="eyebrow"><i class="star"></i> Quién soy</div>
+      <h2>Empecé a los 21 y <span class="grad">no he parado de crear</span></h2>
+      <p>Soy <b>Laura Ocampo Franco</b>, pero casi todos me dicen <b>Lau</b>. Tengo 27 años, vivo en Medellín y llevo <b>6 años</b> en el <b>marketing digital</b>. Mi misión es ayudar a las marcas a <b>destacar en el mundo digital</b>.</p>
+      <p>Empecé a los 21 dando <b>mentorías de marketing digital</b> a agentes de real estate y ayudando a empresas con el <b>diseño gráfico</b>, aunque no era mi fuerte. Luego me empezaron a pedir <b>redes sociales, Meta Ads y landing pages</b>, y crecí como freelance y con mi propio equipo, en empresas de <b>Colombia y Florida</b>.</p>
+      <p>He pasado por <b>real estate, salud, maquillaje y skincare coreano, muebles, energía y sanación, validación de títulos, coaching y recetas</b>. Cada nicho me enseñó a hablar el idioma de su cliente.</p>
+      <p>Mi enfoque: <b>métodos comprobados y resultados medibles</b>, <b>contenido visual</b> atractivo, <b>Meta Ads y TikTok Ads</b>, <b>landing pages que convierten</b> y estrategias de <b>SEO</b> para crecer de forma <b>orgánica y sostenible</b>.</p>
+      <p>Soy curiosa, apasionada por aprender y comprometida con cada proyecto. Quiero que tu marca logre <b>ventas y visibilidad reales</b>.</p>
+      <p class="script">Si buscas crecer de forma auténtica, efectiva y estratégica, ¡aquí estoy para ayudarte!</p>
+    </div>
+    <div class="rv">
+      <div class="stats">
+        <div class="stat"><b data-n="6" data-s="+">0</b><span>años creando marcas</span></div>
+        <div class="stat"><b data-n="10" data-s="+">0</b><span>marcas y empresas con las que he trabajado</span></div>
+        <div class="stat"><b data-n="10" data-s="+">0</b><span>nichos y gremios trabajados</span></div>
+        <div class="stat"><b data-n="100" data-s="+">0</b><span>diseños, videos y campañas</span></div>
+      </div>
+      <div class="polas" id="polas"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="eyebrow rv"><i class="star"></i> Servicios</div>
+    <h2 class="rv">Todo lo que tu marca necesita, <span class="grad">en un solo lugar</span></h2>
+    <p class="lead rv">Marketing digital en Medellín y Estados Unidos: pauta, diseño, redes sociales, landing pages, videos con IA y CRM propio. Elige un servicio y mira qué incluye.</p>
+    <div class="tabs" id="tabs"></div>
+    <div id="panels"></div>
+    <div class="band rv"><div><h3>¿Te interesa alguno de estos servicios?</h3><p>Cuéntame tu idea y armamos una propuesta a tu medida.</p></div><a class="btn fill mag" href="#contacto">Cotiza tu proyecto ✦</a></div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="wrap">
+    <div class="eyebrow rv"><i class="star"></i> Proyectos</div>
+    <h2 class="rv">Diseños que <span class="grad">hablan por mí</span></h2>
+    <p class="lead rv">Posts, carruseles, reels y landing pages de marcas de distintos nichos. Toca uno para verlo en grande.</p>
+    <div class="filters" id="filters"></div>
+    <div class="gal" id="gal"></div>
+    <div class="band rv"><div><h3>¿Quieres un resultado así para tu marca?</h3><p>Diseño, pauta y contenido hechos a tu medida.</p></div><a class="btn fill mag" href="#contacto">Hablemos ✦</a></div>
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="herramientas">
+  <div class="wrap">
+    <div class="eyebrow rv"><i class="star"></i> Habilidades</div>
+    <h2 class="rv">Mi caja de <span class="grad">herramientas</span></h2>
+    <p class="lead rv">Plataformas, software e inteligencia artificial que domino junto a mi equipo de trabajo.</p>
+    <div class="tools" id="tools"></div>
+    <div class="sub rv">En lo que soy buena</div>
+    <div class="chips" id="skills"></div>
+    <div class="sub rv">Nichos con los que he trabajado</div>
+    <div class="chips" id="chips"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA + ESTUDIOS -->
+<section id="experiencia">
+  <div class="wrap">
+    <div class="eyebrow rv"><i class="star"></i> Experiencia</div>
+    <h2 class="rv">Donde he <span class="grad">dejado huella</span></h2>
+    <div class="timeline" id="exp"></div>
+    <div class="sub rv">Y más de 10 marcas en todos estos gremios</div>
+    <p class="lead rv" style="margin-top:6px">Además de estas empresas, he trabajado con marcas y emprendedores de real estate, salud, belleza, energía y más.</p>
+    <div class="brands" id="brands"></div>
+
+    <div class="eyebrow rv" style="margin-top:80px"><i class="star"></i> Estudios</div>
+    <h2 class="rv">Siempre <span class="grad">aprendiendo</span></h2>
+    <div class="timeline" id="edu"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="wrap">
+    <div class="eyebrow rv"><i class="star"></i> Testimonios</div>
+    <h2 class="rv">Lo dicen <span class="grad">mis clientes</span></h2>
+    <p class="lead rv">Videos reales de personas con las que he trabajado. Toca para reproducir y desliza para ver más.</p>
+    <div class="tcar rv" id="tcar"></div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="wrap">
+    <div class="eyebrow rv"><i class="star"></i> Cómo trabajo</div>
+    <h2 class="rv">Contigo, <span class="grad">paso a paso</span></h2>
+    <div class="steps" id="steps"></div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="box rv">
+      <div class="left">
+        <span class="script">¿Lista para tu siguiente nivel?</span>
+        <h2>Tu visión es <span class="grad">mi misión</span></h2>
+        <p class="lead">Déjame tus datos y te contacto para conversar sobre tu proyecto. Sin compromiso.</p>
+        <div class="links2">
+          <a class="btn mag" id="mail">✉ Escríbeme</a>
+          <a class="btn mag" id="gform" style="display:none" target="_blank" rel="noopener">Formulario</a>
+          <a class="btn mag" id="ig" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn mag" id="bh" target="_blank" rel="noopener">Behance</a>
+        </div>
+      </div>
+      <form id="form" novalidate>
+        <div><label for="f1">Tu nombre</label><input id="f1" name="nombre" autocomplete="name" required></div>
+        <div><label for="f2">Correo o WhatsApp</label><input id="f2" name="contacto" autocomplete="email" required></div>
+        <div><label for="f3">¿Qué necesitas?</label>
+          <select id="f3" name="servicio">
+            <option>Pauta (Meta, TikTok o Google Ads)</option>
+            <option>Redes sociales y contenido</option>
+            <option>Landing page o sitio web</option>
+            <option>Videos con IA</option>
+            <option>CRM propio con bot</option>
+            <option>Mentoría o consultoría</option>
+            <option>Aún no lo sé, quiero asesoría</option>
+          </select></div>
+        <div><label for="f4">Cuéntame de tu proyecto</label><textarea id="f4" name="mensaje"></textarea></div>
+        <button class="btn fill" type="submit">Enviar ✦</button>
+        <div id="msg" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+<footer>© <span id="yr"></span> Laura Ocampo Franco (Lau) · Hecho con creatividad desde Medellín ✦</footer>
+<a class="fab" id="fab" href="#contacto">Hablemos ✦</a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Vista del proyecto">
+  <button class="x" id="lbx" aria-label="Cerrar">✕</button>
+  <button class="pv" id="lbp" aria-label="Anterior">‹</button>
+  <button class="nx" id="lbn" aria-label="Siguiente">›</button>
+  <div class="stage" id="lbs"></div>
+  <div class="dots" id="lbd"></div>
+  <div class="cap" id="lbc"></div>
+</div>
+
+<script>
+/* =========================================================
+   ✏️  EDITA AQUÍ TU CONTENIDO  (no necesitas tocar nada más)
+   Lo que dice "EDITAR" es de ejemplo.
+   ========================================================= */
+const CONFIG = {
+  email: "lawriztfios99@gmail.com",
+  instagram: "https://instagram.com/tu_usuario",   // EDITAR
+  behance: "https://www.behance.net/gallery/230675759/Portafolio-2025",
+  googleForm: "",      // Opcional: pega aquí el link de tu Google Form (se muestra un botón "Formulario")
+  formEndpoint: "",    // Opcional: link de Formspree (https://formspree.io/f/xxxx) para recibir el formulario en tu correo sin abrir el mail
+  roles: ["Diseñadora de contenido","Meta Ads & TikTok Ads","Mentorías y consultorías de marketing digital","Edición de videos","Desarrolladora de software","Videos e IA para tu marca"],
+  marquee: ["Meta Ads","TikTok Ads","Google Ads","Landing pages","Redes sociales","Videos con IA","CRM propio","Bot de atención","Diseño","Edición","SEO","Mentorías"]
+};
+
+const COLORS = {mar:"#9fd8e6", lila:"#c9b3f0", rosa:"#f6b8d1", menta:"#b8ecd2"};
+
+// Tus 3 fotos creativas (polaroids). Guarda las fotos en assets/laura/ y pon la ruta. Vacío = se ve un espacio de color.
+const FOTOS = [
+  {src:"", emoji:"📸", c:"mar",   r:"-4deg"},
+  {src:"", emoji:"✨", c:"lila",  r:"3deg"},
+  {src:"", emoji:"🎨", c:"rosa",  r:"-2deg"}
+];
+
+// FOTOS FLOTANTES del inicio (junto a pinceles y estrellas). Guarda tus fotos en assets/laura/ y pon la ruta en src.
+// shape: arch | circle | blob | round | cutout (cutout = PNG con fondo transparente, sin marco)
+// top/left/right: posición en %; size: tamaño en px; rot: giro en grados; xl:true = solo se ve en pantallas grandes
+const FLOTANTES = [
+  {src:"", emoji:"📸", c:"mar",   size:112, top:"10%", left:"1%",  rot:-8, shape:"arch"},
+  {src:"", emoji:"✨", c:"rosa",  size:104, top:"68%", left:"2%",  rot:7,  shape:"circle", xl:true},
+  {src:"", emoji:"🎨", c:"lila",  size:120, top:"8%",  right:"2%", rot:9,  shape:"blob"},
+  {src:"", emoji:"💜", c:"menta", size:104, top:"70%", right:"2%", rot:-6, shape:"arch", xl:true},
+  {src:"", emoji:"🌸", c:"rosa",  size:92,  top:"38%", left:"0%",  rot:6,  shape:"round", xl:true},
+  {src:"", emoji:"⭐", c:"mar",   size:92,  top:"40%", right:"0.5%", rot:-8, shape:"circle", xl:true}
+];
+
+// MARCAS con las que has trabajado (nombre o logo). Pide permiso al cliente antes de mostrar su logo.
+const MARCAS = [
+  {n:"EDITAR: Marca 1", logo:""},{n:"EDITAR: Marca 2", logo:""},{n:"EDITAR: Marca 3", logo:""},{n:"EDITAR: Marca 4", logo:""},
+  {n:"EDITAR: Marca 5", logo:""},{n:"EDITAR: Marca 6", logo:""},{n:"EDITAR: Marca 7", logo:""},{n:"EDITAR: Marca 8", logo:""}
+];
+
+const HERRAMIENTAS = [
+  {n:"Meta Ads", a:"M", c:"mar"},{n:"TikTok Ads", a:"Tk", c:"rosa"},{n:"Google Ads", a:"G", c:"menta"},
+  {n:"WordPress", a:"Wp", c:"lila"},{n:"CRM propio", a:"CRM", c:"mar"},{n:"Illustrator", a:"Ai", c:"rosa"},
+  {n:"Photoshop", a:"Ps", c:"mar"},{n:"After Effects", a:"Ae", c:"lila"},{n:"Canva", a:"Ca", c:"menta"},
+  {n:"CapCut", a:"Cc", c:"rosa"},{n:"IA en todo", a:"IA", c:"lila"},{n:"Mailchimp", a:"Mc", c:"menta"}
+];
+
+const HABILIDADES = ["Estrategia de contenidos","Estrategia de marketing","Investigación de mercado","Marketing de marca","Marketing de redes sociales","Marketing digital","Marketing inmobiliario","SEO","Publicidad","Marketing de productos"];
+
+const NICHOS = ["Real estate","Salud","Maquillaje y skincare coreano","Muebles","Energía y sanación","Validación de títulos","Coaching","Recetas y cocina","Productos de limpieza","EDITAR: agrega más"];
+
+const EXPERIENCIA = [
+  {c:"mar",  when:"Oct 2024 – Oct 2025 · Orlando, FL (remoto)", title:"Especialista en Marketing y Tecnología Creativa", org:"Zaria Realty Group",
+   text:"Impulsé la estrategia digital y la presencia de marca de la empresa y sus agentes: diseño gráfico, edición de videos, email marketing semanal en Mailchimp, formularios de registro y agendamiento, capacitación a agentes en marketing digital, pautas publicitarias, sitio web corporativo e intranet con formación y recursos para los agentes.",
+   tags:["Marketing digital","Diseño gráfico","Contenido visual","Desarrollo web"]},
+  {c:"lila", when:"Feb 2024 – Jun 2024 · Florida (remoto)", title:"Directora de Marketing Digital y Diseño Gráfico", org:"My Realty Group · Innovation Mortgage",
+   text:"Diseñé presentaciones y flyers, gestioné redes, creé carruseles, edité videos y lideré campañas de Meta Ads, coordinando al equipo para realtors de Miami y Orlando.",
+   tags:["Redes sociales","Meta Ads","Diseño gráfico","Liderazgo de equipo"]},
+  {c:"rosa", when:"May 2023 – Feb 2024 · Florida (remoto)", title:"Especialista en Redes Sociales y Asistencia Administrativa", org:"Fortex Realty",
+   text:"Soporte gráfico y de marketing para realtors de Miami y Orlando: edición de videos, diseño de landing pages, optimización de campañas, clases por Zoom sobre plataformas digitales y creación de la mascota corporativa.",
+   tags:["Landing pages","Campañas","Edición de video","Mascota de marca"]},
+  {c:"menta",when:"Jun 2022 – Dic 2022 · Medellín", title:"Estratega de Redes Sociales y Coordinadora de Operaciones", org:"Industrias Cory",
+   text:"Estrategia de contenido para una empresa de productos biodegradables de limpieza: informar novedades, rebajas y kits con un enfoque amigable y profesional.",
+   tags:["Estrategia de contenido","Redes sociales"]},
+  {c:"mar",  when:"Oct 2021 – Jun 2022 · Antioquia", title:"Community Manager y Diseñadora Gráfica Digital", org:"Okcook (Purinox)",
+   text:"Catálogo de productos y posts informativos con llamados a la acción, además de fotografía de ollas y purificadores de agua. Donde empezó todo.",
+   tags:["Diseño gráfico","Community manager","Fotografía de producto"]}
+];
+
+const ESTUDIOS = [
+  {c:"lila", when:"Ago 2022 – Dic 2024", title:"Bachelor of Technology (BTech) · Computer Software and Media Applications", org:"SENA · Servicio Nacional de Aprendizaje", text:"", tags:[]},
+  {c:"menta",when:"Sep 2020 – Dic 2020", title:"Inglés Blendex Morning · 120 horas", org:"BLENDEX Centro de Idiomas",
+   text:"Fortalecí comprensión auditiva, conversación y escritura en inglés para desenvolverme con confianza en contextos profesionales. Certificado en Medellín el 18 de diciembre de 2020.", tags:["Inglés","Comunicación oral"]}
+];
+
+const SERVICIOS = [
+  {c:"mar", name:"Pauta Digital", title:"Meta, TikTok y Google Ads",
+   text:"Campañas que atraen a las personas correctas y las llevan a escribirte o comprarte.",
+   items:["Meta Ads (Facebook e Instagram) a WhatsApp, formularios y ventas","TikTok Ads con creativos nativos","Google Ads: búsqueda, display y remarketing","Públicos, segmentación, píxel y medición de conversiones","Reporte claro y optimización continua"],
+   ej:{h:"Ejemplo de logro", big:"EDITAR: +X leads", small:"EDITAR: nicho · periodo · inversión mensual"}},
+  {c:"rosa", name:"Redes y Contenido", title:"Redes sociales completas",
+   text:"Me encargo de todo para que tu marca se vea profesional y esté siempre activa.",
+   items:["Estrategia y calendario de contenido","Diseño de posts, carruseles e historias","Edición de reels y videos","Publicación y programación","Guiones de apoyo para grabar","1 reunión al mes de resultados y comunicación constante"],
+   ej:{h:"Ejemplo de logro", big:"EDITAR: +X seguidores", small:"EDITAR: nicho · periodo"}},
+  {c:"lila", name:"Web y Landing", title:"Páginas que convierten",
+   text:"Landing pages y sitios en WordPress o a la medida, rápidos y pensados para que el visitante actúe.",
+   items:["Diseño a la medida de tu marca","Textos persuasivos y llamados a la acción","Conexión con WhatsApp, formularios y CRM","Optimizadas para celular, velocidad y SEO","Medición con píxel y analítica"],
+   ej:{h:"Ejemplo de logro", big:"EDITAR: X% conversión", small:"EDITAR: nicho · campaña · resultado"}},
+  {c:"menta", name:"Videos con IA", title:"Contenido con inteligencia artificial",
+   text:"Videos y piezas creativas con IA que ahorran tiempo y producción sin perder calidad.",
+   items:["Videos promocionales con IA","Avatares, voces y animaciones","Anuncios y reels creativos","Edición y postproducción (CapCut y After Effects)","Ideal para destacar sin grandes producciones"],
+   ej:{h:"Ejemplo de logro", big:"EDITAR: X videos", small:"EDITAR: nicho · resultado en vistas o ventas"}},
+  {c:"mar", name:"CRM + Bot", title:"Tu sistema, en tu propio sitio",
+   text:"Un CRM a la medida con todo centralizado, alojado en tu propio dominio y con IA integrada.",
+   items:["Contactos y conversaciones en un solo lugar","Conexión con tus redes sociales","Bot que atiende a tus clientes 24/7","Accesos y roles para todo tu equipo","IA para organizar agenda y calendario","Automatizaciones: recordatorios y seguimiento"],
+   ej:{h:"Ejemplo de logro", big:"EDITAR: X horas ahorradas", small:"EDITAR: nicho · qué automatizaste"}},
+  {c:"rosa", name:"Mentorías", title:"Mentorías y consultorías de marketing digital",
+   text:"Te acompaño para que entiendas y apliques el marketing digital en tu negocio o en tu equipo.",
+   items:["Diagnóstico de tu marca y redes","Plan de acción a tu medida","Capacitación a equipos (como lo hice con agentes inmobiliarios)","Acompañamiento y resolución de dudas"],
+   ej:{h:"Ejemplo de logro", big:"EDITAR: X personas capacitadas", small:"EDITAR: equipo · tema · resultado"}}
+];
+
+/* GALERÍA: cada proyecto puede tener varias imágenes (carrusel). Rutas: assets/disenos/<nicho>/<archivo>.jpg
+   type: Post | Carrusel | Reel | Landing | Logo | Otro    link: opcional (ej. la landing en vivo) */
+const GALERIA = [
+  {niche:"Real estate", type:"Carrusel", title:"EDITAR: Carrusel inmobiliario", note:"EDITAR: marca o descripción", images:[], link:""},
+  {niche:"Real estate", type:"Post", title:"EDITAR: Post de propiedad", note:"", images:[], link:""},
+  {niche:"Salud", type:"Carrusel", title:"EDITAR: Carrusel de salud", note:"", images:[], link:""},
+  {niche:"Belleza y skincare", type:"Post", title:"EDITAR: Post de skincare", note:"", images:[], link:""},
+  {niche:"Belleza y skincare", type:"Reel", title:"EDITAR: Reel de producto", note:"", images:[], link:""},
+  {niche:"Muebles", type:"Carrusel", title:"EDITAR: Carrusel de muebles", note:"", images:[], link:""},
+  {niche:"Energía y sanación", type:"Post", title:"EDITAR: Post de retiro", note:"", images:[], link:""},
+  {niche:"Educación y asesorías", type:"Post", title:"EDITAR: Post de asesoría", note:"", images:[], link:""},
+  {niche:"Coaching y recetas", type:"Carrusel", title:"EDITAR: Carrusel de recetas", note:"", images:[], link:""}
+];
+
+// Testimonios en video. "video": archivo "assets/testimonios/x.mp4" o link de YouTube/Vimeo. "wide": true si es horizontal.
+const TESTIMONIOS = [
+  {c:"mar",  name:"EDITAR: Nombre", role:"EDITAR: negocio o nicho", quote:"EDITAR: frase corta del video.", video:"", poster:"", wide:false},
+  {c:"lila", name:"EDITAR: Nombre", role:"EDITAR: negocio o nicho", quote:"EDITAR: frase corta del video.", video:"", poster:"", wide:false},
+  {c:"rosa", name:"EDITAR: Nombre", role:"EDITAR: negocio o nicho", quote:"EDITAR: frase corta del video.", video:"", poster:"", wide:false}
+];
+
+const PROCESO = [
+  {c:"mar",  t:"Descubrimiento", p:"Hablamos de tu marca, tus metas y tu cliente ideal."},
+  {c:"lila", t:"Estrategia", p:"Armamos el plan: canales, contenido, presupuesto y tiempos."},
+  {c:"rosa", t:"Creación", p:"Diseño, edito, programo y publico. Tú apruebas y yo ejecuto."},
+  {c:"menta",t:"Resultados", p:"1 reunión al mes, reportes claros y comunicación constante."}
+];
+
+/* =========================================================
+   Lógica (no necesitas editar de aquí hacia abajo)
+   ========================================================= */
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const col = k => COLORS[k] || k, pal = Object.values(COLORS);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+// nombre animado
+$("#nameL").innerHTML = "LAU".split("").map((ch,i)=>`<span class="l" style="animation-delay:${i*.14}s;color:${pal[i%3]}">${ch}</span>`).join("");
+$("#marq").innerHTML = [...CONFIG.marquee,...CONFIG.marquee].map(t=>`<span>${t} ✦</span>`).join("");
+
+// polaroids
+$("#polas").innerHTML = FOTOS.map(f=>`<div class="pola" style="--r:${f.r}"><div class="ph" style="--c:${col(f.c)}">${f.src?`<img src="${f.src}" alt="Laura" loading="lazy">`:f.emoji}</div></div>`).join("");
+
+// herramientas, habilidades, nichos
+$("#tools").innerHTML = HERRAMIENTAS.map(t=>`<div class="tool rv" style="--c:${col(t.c)}"><i>${t.a}</i><span>${t.n}</span></div>`).join("");
+$("#skills").innerHTML = HABILIDADES.map((n,i)=>`<span class="chip" style="--c:${pal[i%4]}">${n}</span>`).join("");
+$("#chips").innerHTML = NICHOS.map((n,i)=>`<span class="chip" style="--c:${pal[(i+1)%4]}">${n}</span>`).join("");
+
+// timelines
+const tl = (arr,el)=>{ $(el).innerHTML = arr.map(e=>`<div class="tl rv" style="--c:${col(e.c)}"><small>${e.when}</small><h3>${e.title}</h3><div class="org">${e.org}</div>${e.text?`<p>${e.text}</p>`:""}${e.tags.length?`<div class="tags">${e.tags.map(t=>`<em>${t}</em>`).join("")}</div>`:""}</div>`).join(""); };
+tl(EXPERIENCIA,"#exp"); tl(ESTUDIOS,"#edu");
+
+// servicios
+$("#tabs").innerHTML = SERVICIOS.map((s,i)=>`<button class="tab ${i?"":"on"}" data-i="${i}" style="--c:${col(s.c)}">${s.name}</button>`).join("");
+$("#panels").innerHTML = SERVICIOS.map((s,i)=>`
+  <div class="panel ${i?"":"on"}" style="--c:${col(s.c)}">
+    <div><h3>${s.title}</h3><p>${s.text}</p><ul>${s.items.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+    <div class="ejemplo"><h4>${s.ej.h}</h4><div class="big">${s.ej.big}</div><small>${s.ej.small}</small></div>
+  </div>`).join("");
+$$(".tab").forEach(b=>b.onclick=()=>{ $$(".tab,.panel").forEach(x=>x.classList.remove("on")); b.classList.add("on"); $$(".panel")[b.dataset.i].classList.add("on"); b.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"}); });
+
+// galería
+const ICON = {Post:"🖼️",Carrusel:"🎠",Reel:"🎬",Landing:"💻",Logo:"✨",Otro:"🎨"};
+const niches = ["Todos",...new Set(GALERIA.map(g=>g.niche))];
+$("#filters").innerHTML = niches.map((n,i)=>`<button class="fbtn ${i?"":"on"}" data-n="${esc(n)}">${esc(n)}</button>`).join("");
+$("#gal").innerHTML = GALERIA.map((g,i)=>`
+  <button class="card rv" data-i="${i}" data-n="${esc(g.niche)}" style="--c:${pal[i%4]}">
+    <div class="thumb">${g.images[0]?`<img src="${g.images[0]}" alt="${esc(g.title)}" loading="lazy">`:ICON[g.type]||"🎨"}${g.images.length>1?`<span class="badge">▣ ${g.images.length}</span>`:""}</div>
+    <div class="body"><span class="tag">${esc(g.type)} · ${esc(g.niche)}</span><h3>${esc(g.title)}</h3>${g.note?`<p>${esc(g.note)}</p>`:""}</div>
+  </button>`).join("");
+$$(".fbtn").forEach(b=>b.onclick=()=>{ $$(".fbtn").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+  $$(".card").forEach(c=>c.classList.toggle("hide", b.dataset.n!=="Todos" && c.dataset.n!==b.dataset.n)); });
+$$(".card").forEach(c=>{
+  c.addEventListener("click",()=>openLB(+c.dataset.i));
+  if(matchMedia("(hover:hover)").matches){
+    c.addEventListener("mousemove",e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(800px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-6px)`});
+    c.addEventListener("mouseleave",()=>c.style.transform="");
+  }
+});
+
+// lightbox
+let cur=0, slide=0;
+const lb=$("#lb");
+function drawLB(){
+  const g=GALERIA[cur], n=Math.max(g.images.length,1), c=pal[cur%4];
+  $("#lbs").innerHTML = g.images.length ? `<img src="${g.images[slide]}" alt="${esc(g.title)}">` : `<div class="ph" style="--c:${c}">${esc(g.title)}<br><small style="font-family:Raleway;font-weight:600">Aquí irá tu diseño</small></div>`;
+  $("#lbd").innerHTML = n>1 ? Array.from({length:n},(_,i)=>`<i class="${i===slide?"on":""}"></i>`).join("") : "";
+  $("#lbc").innerHTML = `<b>${esc(g.title)}</b><p>${esc(g.type)} · ${esc(g.niche)}${g.note?" · "+esc(g.note):""}</p>${g.link?`<a class="go" href="${g.link}" target="_blank" rel="noopener">Ver en vivo →</a>`:""}`;
+  const multi=g.images.length>1; $("#lbp").style.display=$("#lbn").style.display=multi?"block":"none";
+}
+function openLB(i){cur=i;slide=0;drawLB();lb.classList.add("open");document.body.style.overflow="hidden"}
+function closeLB(){lb.classList.remove("open");document.body.style.overflow=""}
+const move=d=>{const n=GALERIA[cur].images.length;if(n<2)return;slide=(slide+d+n)%n;drawLB()};
+$("#lbx").onclick=closeLB; $("#lbp").onclick=()=>move(-1); $("#lbn").onclick=()=>move(1);
+lb.addEventListener("click",e=>{if(e.target===lb)closeLB()});
+addEventListener("keydown",e=>{if(!lb.classList.contains("open"))return;if(e.key==="Escape")closeLB();if(e.key==="ArrowLeft")move(-1);if(e.key==="ArrowRight")move(1)});
+let tx=0; lb.addEventListener("touchstart",e=>tx=e.touches[0].clientX,{passive:true});
+lb.addEventListener("touchend",e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)move(d<0?1:-1)});
+
+// testimonios
+const embedUrl = v=>{
+  let m=v.match(/(?:youtu\.be\/|v=|shorts\/)([\w-]{11})/); if(m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1&rel=0`;
+  m=v.match(/vimeo\.com\/(\d+)/); if(m) return `https://player.vimeo.com/video/${m[1]}?autoplay=1`;
+  return null;
+};
+$("#tcar").innerHTML = TESTIMONIOS.map((t,i)=>`
+  <div class="tv" style="--c:${col(t.c)}">
+    <div class="vid ${t.wide?"wide":""}" data-i="${i}" role="button" tabindex="0" aria-label="Reproducir testimonio de ${esc(t.name)}">
+      ${t.poster?`<img src="${t.poster}" alt="${esc(t.name)}" loading="lazy">`:""}<span class="play"></span>
+    </div>
+    <div class="info"><p>“${esc(t.quote)}”</p><b>${esc(t.name)}</b><small>${esc(t.role)}</small></div>
+  </div>`).join("");
+const playVid = box=>{
+  const t=TESTIMONIOS[box.dataset.i]; if(!t.video) return;
+  $$("#tcar video").forEach(v=>v.pause());
+  const e=embedUrl(t.video);
+  box.innerHTML = e ? `<iframe src="${e}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
+                    : `<video src="${t.video}" controls autoplay playsinline ${t.poster?`poster="${t.poster}"`:""}></video>`;
+};
+$$("#tcar .vid").forEach(b=>{b.onclick=()=>playVid(b);b.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();playVid(b)}}});
+
+// proceso
+$("#steps").innerHTML = PROCESO.map((s,i)=>`<div class="step rv" style="--c:${col(s.c)}"><b>0${i+1}</b><h3>${s.t}</h3><p>${s.p}</p></div>`).join("");
+
+// contacto
+$("#mail").href = `mailto:${CONFIG.email}`; $("#ig").href = CONFIG.instagram; $("#bh").href = CONFIG.behance;
+if(CONFIG.googleForm){const g=$("#gform");g.href=CONFIG.googleForm;g.style.display="inline-block"}
+$("#yr").textContent = new Date().getFullYear();
+$("#form").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const f=e.target, d=Object.fromEntries(new FormData(f)), msg=$("#msg");
+  if(!d.nombre.trim()||!d.contacto.trim()){msg.textContent="Escribe tu nombre y cómo contactarte 🙂";return}
+  if(CONFIG.formEndpoint){
+    try{const r=await fetch(CONFIG.formEndpoint,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(d)});
+      if(r.ok){msg.textContent="¡Gracias! Te contacto muy pronto ✦";f.reset();return}}catch(_){}
+  }
+  const body=`Nombre: ${d.nombre}\nContacto: ${d.contacto}\nServicio: ${d.servicio}\n\n${d.mensaje}`;
+  location.href=`mailto:${CONFIG.email}?subject=${encodeURIComponent("Nuevo contacto desde tu portafolio")}&body=${encodeURIComponent(body)}`;
+  msg.textContent="Se abrirá tu correo para enviar el mensaje ✦";
+});
+
+// roles que se escriben
+(()=>{const el=$("#typed"),R=CONFIG.roles;let i=0,j=0,del=false;
+  (function tick(){const f=R[i];el.textContent=f.slice(0,j);
+    if(!del&&j===f.length){del=true;return setTimeout(tick,1600)}
+    if(del&&j===0){del=false;i=(i+1)%R.length}
+    j+=del?-1:1;setTimeout(tick,del?28:60)})();
+})();
+
+// fotos flotantes, pinceles y estrellas del hero
+const SHAPES={arch:"999px 999px 24px 24px",circle:"50%",blob:"42% 58% 62% 38% / 45% 40% 60% 55%",round:"28px",cutout:"0"};
+const brushSVG=c=>`<svg viewBox="0 0 64 200" width="100%" style="display:block"><rect x="26" y="0" width="12" height="112" rx="6" fill="${c}"/><rect x="21" y="104" width="22" height="28" rx="3" fill="#ece8f3"/><path d="M21 132h22c5 32-4 58-11 66-7-8-16-34-11-66z" fill="${c}" opacity=".9"/></svg>`;
+const pos=f=>`top:${f.top};${f.left?`left:${f.left}`:`right:${f.right}`}`;
+const DECOR=[
+  {t:"br", c:"lila",  size:46, top:"6%",  left:"40%", rot:28,  xl:true},
+  {t:"br", c:"rosa",  size:40, top:"74%", right:"36%", rot:-32, xl:true},
+  {t:"br", c:"menta", size:34, top:"46%", left:"1%", rot:-20},
+  {t:"st", c:"mar",   size:26, top:"26%", left:"47%", rot:0, xl:true},
+  {t:"st", c:"rosa",  size:20, top:"84%", left:"30%", rot:0},
+  {t:"st", c:"lila",  size:24, top:"16%", right:"14%", rot:0}
+];
+$("#floaters").innerHTML=
+  FLOTANTES.map((f,i)=>`<div class="fl ${f.xl?"xl":""}" data-d="${14+i*5}" style="--s:${f.size};${pos(f)}"><div class="in ${f.shape==="cutout"?"cut":""}" style="--rot:${f.rot}deg;--dur:${6+i}s;--c:${col(f.c)};border-radius:${SHAPES[f.shape]||SHAPES.round}">${f.src?`<img src="${f.src}" alt="" loading="lazy">`:`<span>${f.emoji}</span>`}</div></div>`).join("")
+ +DECOR.map((d,i)=>`<div class="fl ${d.t} ${d.xl?"xl":""}" data-d="${20+i*4}" style="--s:${d.size};${pos(d)}"><div class="in" style="--rot:${d.rot}deg;--dur:${5+i*1.3}s;--c:${col(d.c)}">${d.t==="br"?brushSVG(col(d.c)):""}</div></div>`).join("");
+if(matchMedia("(hover:hover)").matches){
+  addEventListener("mousemove",e=>{const cx=innerWidth/2,cy=innerHeight/2;
+    $$(".fl").forEach(el=>{const d=+el.dataset.d;el.style.translate=`${(e.clientX-cx)/cx*d}px ${(e.clientY-cy)/cy*d}px`})});
+}
+
+// marcas
+$("#brands").innerHTML=MARCAS.map((m,i)=>`<div class="brand-tile rv" style="--c:${pal[i%4]}">${m.logo?`<img src="${m.logo}" alt="${esc(m.n)}" loading="lazy">`:esc(m.n)}</div>`).join("");
+
+// pantalla de entrada
+const splash=$("#splash");let sd=false;
+const endSplash=()=>{if(sd)return;sd=true;splash.classList.add("gone");document.body.classList.add("go");setTimeout(()=>splash.remove(),800)};
+splash.addEventListener("click",endSplash);setTimeout(endSplash,2800);
+
+// accesos rápidos a servicios en el hero
+const PILLS=[["Meta Ads",0],["TikTok Ads",0],["Google Ads",0],["Landing pages",2],["Redes",1],["Videos con IA",3],["CRM + Bot",4]];
+$("#pills").innerHTML=PILLS.map(([n,t],i)=>`<a href="#servicios" data-t="${t}" style="--c:${pal[i%4]}">${n}</a>`).join("");
+$$("#pills a").forEach(a=>a.addEventListener("click",()=>{const b=$$(".tab")[a.dataset.t];if(b)b.click()}));
+
+// menú móvil
+const burger=$("#burger"),links=$("#links");
+burger.onclick=()=>{const o=links.classList.toggle("open");burger.setAttribute("aria-expanded",o)};
+links.addEventListener("click",e=>{if(e.target.tagName==="A"){links.classList.remove("open");burger.setAttribute("aria-expanded",false)}});
+
+// brillo del cursor, parallax de stickers y botones magnéticos
+const glow=$("#glow");
+if(matchMedia("(hover:hover)").matches){
+  addEventListener("mousemove",e=>{glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px";
+    const cx=innerWidth/2,cy=innerHeight/2;
+    $$(".sticker").forEach(s=>{const d=+s.dataset.d;s.style.transform=`translate(${(e.clientX-cx)/cx*d}px,${(e.clientY-cy)/cy*d}px) rotate(${getComputedStyle(s).getPropertyValue("--r")})`});
+  });
+  $$(".mag").forEach(b=>{b.addEventListener("mousemove",e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.2}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener("mouseleave",()=>b.style.transform="")});
+}
+
+// progreso, botón flotante y nav activo
+const fab=$("#fab"),prog=$("#progress");
+addEventListener("scroll",()=>{const h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight);prog.style.width=(p*100)+"%";
+  fab.classList.toggle("show",h.scrollTop>600 && h.scrollTop<h.scrollHeight-h.clientHeight-700)},{passive:true});
+
+// reveal + contadores
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+$$(".rv").forEach((el,i)=>{el.style.transitionDelay=(i%4)*60+"ms";io.observe(el)});
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,n=+el.dataset.n,s=el.dataset.s||"";let v=0;
+  const t=setInterval(()=>{v+=Math.ceil(n/40);if(v>=n){v=n;clearInterval(t)}el.textContent=v+s},30);co.unobserve(el)}),{threshold:.6});
+$$("[data-n]").forEach(el=>co.observe(el));
+const aLinks=$$(".links a");
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)aLinks.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id&&!a.classList.contains("cta")))}),{rootMargin:"-45% 0px -50% 0px"});
+$$("section,header").forEach(s=>s.id&&so.observe(s));
+</script>
+</body>
+</html>
