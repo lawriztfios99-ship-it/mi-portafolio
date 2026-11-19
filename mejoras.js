@@ -126,9 +126,15 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .vids{display:flex;gap:14px;overflow-x:auto;margin-top:16px;padding-bottom:8px}
 .vids video{flex:0 0 min(200px,56vw);aspect-ratio:9/16;border-radius:18px;object-fit:cover;background:var(--bg2)}
 
-/* REDES: Instagram como perfil real + LinkedIn */
+/* REDES: Instagram simplificado + LinkedIn */
 .sgrid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:stretch}
-.ig{background:var(--bg2);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:clamp(16px,3vw,26px)}
+
+/* Instagram sin cuadro negro */
+.ig{display:flex;flex-direction:column;align-items:flex-start;gap:16px;transition:.3s;background:transparent;border:none;padding:0}
+.ig-top{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.ig-top img{width:42px;height:42px;object-fit:contain;border-radius:10px}
+.ig-top span{font-size:1.15rem;font-weight:800;color:#fff}
+
 .igh{display:flex;gap:clamp(14px,3vw,28px);align-items:center;flex-wrap:wrap;margin-bottom:20px}
 .igh .av{width:clamp(76px,14vw,110px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:3px solid var(--lila);background:var(--lila);flex:none}
 .igh .info{flex:1;min-width:200px}
@@ -167,10 +173,8 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .lg2:hover{transform:translateY(-6px) rotate(-1.5deg)}
 @media(max-width:600px){.lg2{width:116px;height:92px;border-radius:16px}.lg2 img{width:58px;height:58px}.mq .trk{gap:12px}}
 
-.ig{display:flex;flex-direction:column;align-items:flex-start;gap:16px;transition:.3s}
-.ig:hover{transform:translateY(-6px);border-color:var(--lila)}
-.igu{width:100%;height:auto;max-height:260px;object-fit:contain;object-position:left}
-.igf{width:100%;height:auto;border-radius:14px}
+.ig:hover{transform:translateY(-6px)}
+.igf{width:100%;height:auto;border-radius:14px;box-shadow: 0 4px 15px rgba(0,0,0,0.2)}
 .lin .bn.lg{background:#fff;height:130px;display:grid;place-items:center}
 .lin .bn.lg img{object-fit:contain;padding:16px}
 .bc.wide{margin-top:18px}.bc.wide .cv{aspect-ratio:16/6;min-height:150px;flex:none}
@@ -237,14 +241,18 @@ hab.insertAdjacentHTML("beforebegin",`<section id="redes"><div class="wrap">
 <div class="eyebrow rv in"><i class="star"></i> Redes</div><h2 class="rv in">Sígueme y <span class="grad">conoce más</span></h2>
 <div class="sgrid">
 <a class="ig rv in" href="${g.url}" target="_blank" rel="noopener" aria-label="Ver mi Instagram">
-<img class="igu" alt="Mi perfil de Instagram" hidden>
+<div class="ig-top">
+  ${IMG("LOGOS/LOGO INSTAGRAM.jpg","Instagram")}
+  <span>@${g.user}</span>
+</div>
 <img class="igf" alt="Mi feed de Instagram" hidden>
 <span class="btn fill sm">Ver Instagram ↗</span></a>
 <a class="lin rv in" href="${l.url}" target="_blank" rel="noopener" aria-label="Ver mi LinkedIn">
 <div class="bn lg">${IMG(l.logo,"LinkedIn")}</div>${IMG(l.foto,l.name).replace("<img",'<img class="av2"')}
 <div class="bd2"><span class="in">Mi trayectoria</span><h3>${esc(l.name)}</h3><p>${esc(l.headline)}</p><span class="btn fill sm">Entra a LinkedIn ↗</span></div></a>
 </div></div></section>`);
-first(g.usuarioList).then(u=>{const e=$(".igu");if(u&&e){e.src=u;e.hidden=false}});
+
+// Solo cargamos la foto del feed con tus imágenes lilas, el encabezado ya es tu logo limpio
 first(g.feedList).then(u=>{const e=$(".igf");if(u&&e){e.src=u;e.hidden=false}});}
 
 /* ---------- 6. EXPERIENCIA ---------- */
