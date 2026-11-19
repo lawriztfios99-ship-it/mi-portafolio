@@ -71,6 +71,10 @@ const BEH="https://www.behance.net/lauraocampo99"; // tu perfil de Behance
 
 /* ---------- Estilos ---------- */
 document.head.insertAdjacentHTML("beforeend",`<style>
+/* Vista estática sin zoom ni desbordamiento y encuadre del rostro */
+html,body{max-width:100%;overflow-x:clip;touch-action:pan-y}
+.frame img,.pola .ph img,.av2{object-position:50% 12%!important}
+
 .btn{transition:.3s}.btn.sm{padding:11px 20px;font-size:.88rem;min-height:44px}
 .btn.fill:hover{background:var(--menta);border-color:var(--menta);transform:translateY(-3px)}
 .btn:not(.fill):hover{background:var(--lila);color:#2a2a2c;transform:translateY(-3px)}
@@ -126,30 +130,21 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .vids{display:flex;gap:14px;overflow-x:auto;margin-top:16px;padding-bottom:8px}
 .vids video{flex:0 0 min(200px,56vw);aspect-ratio:9/16;border-radius:18px;object-fit:cover;background:var(--bg2)}
 
-/* REDES: Instagram simplificado + LinkedIn */
+/* REDES: Instagram limpio sin cuadro negro + LinkedIn */
 .sgrid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:stretch}
-
-/* Instagram sin cuadro negro */
 .ig{display:flex;flex-direction:column;align-items:flex-start;gap:16px;transition:.3s;background:transparent;border:none;padding:0}
-.ig-top{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.ig:hover{transform:translateY(-6px)}
+.ig-top{display:flex;align-items:center;gap:12px;margin-bottom:4px}
 .ig-top img{width:42px;height:42px;object-fit:contain;border-radius:10px}
 .ig-top span{font-size:1.15rem;font-weight:800;color:#fff}
+.igf{width:100%;height:auto;border-radius:14px;box-shadow:0 4px 15px rgba(0,0,0,.2)}
 
-.igh{display:flex;gap:clamp(14px,3vw,28px);align-items:center;flex-wrap:wrap;margin-bottom:20px}
-.igh .av{width:clamp(76px,14vw,110px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:3px solid var(--lila);background:var(--lila);flex:none}
-.igh .info{flex:1;min-width:200px}
-.igh .top{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.igh .top b{font-size:1.1rem}
-.igh .st{display:flex;gap:18px;margin:8px 0;font-size:.9rem;color:var(--muted)}.igh .st b{color:#fff}
-.igh .nm{font-weight:800;font-size:.9rem}.igh .bio{color:var(--muted);font-size:.86rem;line-height:1.5}
-.igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
-.igrid a{aspect-ratio:4/5;overflow:hidden;position:relative;background:var(--bg)}
-.igrid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.igrid a:hover img{transform:scale(1.08)}
 .lin{display:flex;flex-direction:column;border-radius:var(--radius);overflow:hidden;background:var(--bg2);border:2px solid var(--mar);transition:.3s}
 .lin:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 20px 40px rgba(159,216,230,.15)}
 .lin .bn{height:110px;background:linear-gradient(120deg,var(--mar),var(--lila),var(--rosa));position:relative;overflow:hidden}
 .lin .bn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.lin .bn.lg{background:#fff;height:130px;display:grid;place-items:center}
+.lin .bn.lg img{object-fit:contain;padding:16px}
 .lin .av2{width:104px;height:104px;border-radius:50%;object-fit:cover;border:4px solid var(--bg2);margin:-52px 0 0 22px;position:relative;background:var(--lila)}
 .lin .bd2{padding:10px 22px 24px;display:flex;flex-direction:column;gap:6px;flex:1}
 .lin h3{font-size:1.25rem}.lin p{color:var(--muted);font-size:.92rem;margin-bottom:10px}
@@ -173,10 +168,6 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .lg2:hover{transform:translateY(-6px) rotate(-1.5deg)}
 @media(max-width:600px){.lg2{width:116px;height:92px;border-radius:16px}.lg2 img{width:58px;height:58px}.mq .trk{gap:12px}}
 
-.ig:hover{transform:translateY(-6px)}
-.igf{width:100%;height:auto;border-radius:14px;box-shadow: 0 4px 15px rgba(0,0,0,0.2)}
-.lin .bn.lg{background:#fff;height:130px;display:grid;place-items:center}
-.lin .bn.lg img{object-fit:contain;padding:16px}
 .bc.wide{margin-top:18px}.bc.wide .cv{aspect-ratio:16/6;min-height:150px;flex:none}
 @media(max-width:600px){.bc.wide .cv{aspect-ratio:16/9}}
 .tl.now{border-color:var(--rosa);box-shadow:0 0 0 1px var(--rosa),0 18px 40px rgba(246,184,209,.12)}
@@ -185,16 +176,7 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 </style>`);
 
 /* ---------- 1. QUIÉN SOY (resumido) ---------- */
-const q=$("#quien .rv");
-if(q){q.querySelectorAll("p").forEach(p=>p.remove());
-q.insertAdjacentHTML("beforeend",`
-<p>Soy <b>Laura Ocampo Franco (Lau)</b>, tengo 27 años, vivo en Medellín y llevo <b>6 años</b> en <b>marketing digital</b>. Empecé a los 21 dando <b>mentorías</b> a agentes inmobiliarios y apoyando empresas con <b>diseño gráfico</b>; hoy trabajo con marcas de <b>Colombia y Florida</b>.</p>
-<p>He trabajado en real estate, salud, belleza, muebles, bienestar, coaching, gastronomía y más. Mi enfoque une <b>creatividad, estrategia y resultados</b>: contenido visual, <b>Meta Ads y TikTok Ads</b>, <b>landing pages que convierten</b> y <b>SEO</b>, siempre al día con la <b>inteligencia artificial</b>.</p>
-<p>Junto a mi equipo de <b>Tres y Nueve Creativo</b> creamos estrategias que generan visibilidad, atraen clientes y aportan resultados reales.</p>
-<p class="script">¡Estamos aquí para llevar tu marca al siguiente nivel!</p>`);}
-
-/* ---------- 2. HERRAMIENTAS (solo logos) y MARCAS ---------- */
-$$(".tool").forEach(t=>{const n=t.querySelector("span")?.textContent,f=D.tools[n];
+const q=$("#quien .rv"); if(q){q.querySelectorAll("p").forEach(p=>p.remove()); q.insertAdjacentHTML("beforeend",` <p>Soy <b>Laura Ocampo Franco (Lau)</b>, tengo 27 años, vivo en Medellín y llevo <b>6 años</b> en <b>marketing digital</b>. Empecé a los 21 dando <b>mentorías</b> a agentes inmobiliarios y apoyando empresas con <b>diseño gráfico</b>; hoy trabajo con marcas de <b>Colombia y Florida</b>.</p> <p>He trabajado en real estate, salud, belleza, muebles, bienestar, coaching, gastronomía y más. Mi enfoque une <b>creatividad, estrategia y resultados</b>: contenido visual, <b>Meta Ads y TikTok Ads</b>, <b>landing pages que convierten</b> y <b>SEO</b>, siempre al día con la <b>inteligencia artificial</b>.</p> <p>Junto a mi equipo de <b>Tres y Nueve Creativo</b> creamos estrategias que generan visibilidad, atraen clientes y aportan resultados reales.</p> <p class="script">¡Estamos aquí para llevar tu marca al siguiente nivel!</p>`);}  /* ---------- 2. HERRAMIENTAS (solo logos) y MARCAS ---------- */ $$(".tool").forEach(t=>{const n=t.querySelector("span")?.textContent,f=D.tools[n];
   if(f){t.title=n;t.querySelector("i").innerHTML=IMG("LOGOS/"+f,n);} else t.remove();});
 
 const br=$("#brands");
@@ -206,12 +188,10 @@ if(br){
     let rep=[];while(rep.length<10)rep=rep.concat(l);
     $("#btrk").innerHTML=[...rep,...rep].map(m=>`<div class="lg2" title="${esc(m[0])} · ${esc(m[2])}">${IMG("LOGOS/"+m[1],m[0])}</div>`).join("");};
   draw("Todas");
-  $$("#bf .fbtn").forEach(b=>b.onclick=()=>{$$("#bf .fbtn").forEach(x=>x.classList.remove("on"));b.classList.add("on");draw(b.dataset.s)});
+  $$("#bf .fbtn").forEach(b=>b.onclick=()=>{$$
+("#bf .fbtn").forEach(x=>x.classList.remove("on"));b.classList.add("on");draw(b.dataset.s)});
 }
-const sub=$("#experiencia .sub");if(sub)sub.textContent="Más de 10 marcas, organizadas por sector";
-
-/* ---------- Servicios: imagen clicable → Hablemos ---------- */
-$$(".sv-img").forEach(b=>{const f=D.servicios[b.dataset.img];
+const sub=$("#experiencia .sub");if(sub)sub.textContent="Más de 10 marcas, organizadas por sector";  /* ---------- Servicios: imagen clicable → Hablemos ---------- */ $$(".sv-img").forEach(b=>{const f=D.servicios[b.dataset.img];
   if(f)b.insertAdjacentHTML("beforeend",IMG("SERVICIOS/"+f,b.dataset.alt));
   b.insertAdjacentHTML("beforeend",`<a class="svgo" href="#contacto" aria-label="Hablemos"><span>Hablemos ✦</span></a>`);});
 
@@ -230,11 +210,11 @@ ${D.videos.length?`<div class="vids">${D.videos.map(v=>`<video src="${E(v)}#t=0.
 <div class="more rv in"><div class="sub">Diseño y desarrollo web</div>
 <p class="lead sm2">Sitios y landing pages que he desarrollado. Toca uno para verlo.</p>
 <div class="webg">${D.web.map((w,i)=>`<a class="wcard" href="${w.u}" target="_blank" rel="noopener" style="--c:${pal[i%4]}">
-<div class="cv mock"><div class="browser"><s></s><s></s><s></s><u>${w.logo?IMG("LOGOS/"+w.logo,w.t):`<b>${esc(w.txt||w.t)}</b>`}</u><em></em><em></em></div>${IMG(w.img,w.t)}<span class="ob">Ver sitio ↗</span></div>
+<div class="cv mock"><div class="browser"><s></s><s></s><s></s><u>${w.logo?IMG("LOGOS/"+w.logo,w.t):`<b>${esc(w.txt\vert{}\vert{}w.t)}</b>`}</u><em></em><em></em></div>${IMG(w.img,w.t)}<span class="ob">Ver sitio ↗</span></div>
 <div class="bd"><h3>${esc(w.t)}</h3><span>Ver proyecto ↗</span></div></a>`).join("")}</div>
 <a class="bc wide" href="${BEH}" target="_blank" rel="noopener" style="--c:#f6b8d1"><div class="cv mock">${mock("web")}${IMG(D.behanceBanner,"Mi perfil de Behance")}<span class="ob">Behance ↗</span></div><div class="bd"><h3>Mi portafolio completo en Behance</h3><span>Explorar más trabajos ↗</span></div></a></div>`);}
 
-/* ---------- 5. Instagram (como tu perfil) + LinkedIn ---------- */
+/* ---------- 5. Instagram (logo + usuario + feed lila) + LinkedIn ---------- */
 const hab=$("#herramientas");
 if(hab){const g=D.ig,l=D.linkedin;
 hab.insertAdjacentHTML("beforebegin",`<section id="redes"><div class="wrap">
@@ -251,8 +231,6 @@ hab.insertAdjacentHTML("beforebegin",`<section id="redes"><div class="wrap">
 <div class="bn lg">${IMG(l.logo,"LinkedIn")}</div>${IMG(l.foto,l.name).replace("<img",'<img class="av2"')}
 <div class="bd2"><span class="in">Mi trayectoria</span><h3>${esc(l.name)}</h3><p>${esc(l.headline)}</p><span class="btn fill sm">Entra a LinkedIn ↗</span></div></a>
 </div></div></section>`);
-
-// Solo cargamos la foto del feed con tus imágenes lilas, el encabezado ya es tu logo limpio
 first(g.feedList).then(u=>{const e=$(".igf");if(u&&e){e.src=u;e.hidden=false}});}
 
 /* ---------- 6. EXPERIENCIA ---------- */
@@ -266,8 +244,19 @@ if(exp){exp.insertAdjacentHTML("afterbegin",`<div class="tl now rv in" style="--
 /* ---------- 7. CONTACTO al inicio y al final ---------- */
 const links=()=>[["Instagram",D.ig.url],["LinkedIn",D.linkedin.url],["Behance",BEH],["✉ Correo","mailto:"+mail]]
   .concat(D.wa?[["WhatsApp","https://wa.me/"+D.wa]]:[]);
-const row=cls=>`<div class="${cls}">${links().map(([n,u],i)=>`<a href="${u}" ${u.startsWith("http")?'target="_blank" rel="noopener"':""} style="--c:${pal[i%4]}">${n}</a>`).join("")}</div>`;
+const row=cls=>`<div class="${cls}">${links().map(([n,u],i)=>`<a href="${u}" ${u.startsWith("http")?'target="_blank" rel="noopener"':""} style="--c:${pal[i\%4]}">${n}</a>`).join("")}</div>`;
 const bh=$("#bh");if(bh)bh.href=BEH;
 const btns=$(".hero .btns");if(btns)btns.insertAdjacentHTML("afterend",row("pills quick"));
 const ft=$("footer");if(ft)ft.insertAdjacentHTML("afterbegin",row("pills fcontact"));
+
+/* ---------- 8. Bloqueo de zoom táctil (pellizco/doble toque) y Ctrl/Cmd en PC ---------- */
+document.addEventListener("touchstart", e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
+let lastTouchEnd = 0;
+document.addEventListener("touchend", e => {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) e.preventDefault();
+  lastTouchEnd = now;
+}, { passive: false });
+window.addEventListener("wheel", e => { if (e.ctrlKey || e.metaKey) e.preventDefault(); }, { passive: false });
+window.addEventListener("keydown", e => { if ((e.ctrlKey || e.metaKey) && ["+", "-", "=", "0"].includes(e.key)) e.preventDefault(); });
 })();
