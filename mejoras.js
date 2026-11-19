@@ -1,5 +1,5 @@
 /* =========================================================
-   MEJORAS DEL PORTAFOLIO v2 · Lau Ocampo · Tres y Nueve Creativo
+   MEJORAS DEL PORTAFOLIO v3 · Lau Ocampo · Tres y Nueve Creativo
    Se carga DESPUÉS del script principal del index.html:
    <script src="mejoras.js"></script>   (justo antes de </body>)
    Para agregar proyectos, marcas o fotos solo edita la zona DATOS.
@@ -8,38 +8,33 @@
 /* ---------- DATOS (edita aquí) ---------- */
 const D={
   wa:"", // WhatsApp con indicativo, ej: "573001234567". Vacío = no se muestra
-  // Portadas (opcional): sube la imagen a assets/projects/ con ese nombre. Si no existe, se ve una ilustración
   behance:[
     {k:"video", t:"Edición de video", d:"Reels y videos editados", u:"https://www.behance.net/gallery/231181729/Edicion-de-Video", img:"laura/PORTADAS PROYECTOS/EDICIÓN DE VIDEO PORTADA.jpg", cta:"VER PROYECTOS DE EDICIÓN DE VIDEO"},
     {k:"social", t:"Social media · Parte 1", d:"Posts y carruseles", u:"https://www.behance.net/gallery/230686035/Social-Media-Parte-1-(Marcas-Disenos)", img:"laura/PORTADAS PROYECTOS/SOCIAL MEDIA PORTADA 1.jpg", cta:"VER SOCIAL MEDIA – PARTE 1"},
     {k:"social", t:"Social media · Parte 2", d:"Más marcas y diseños", u:"https://www.behance.net/gallery/230688607/Social-Media-Parte-2-(Marcas-Disenos)", img:"laura/PORTADAS PROYECTOS/SOCIAL MEDIA PORTADA 2.jpg", cta:"VER SOCIAL MEDIA – PARTE 2"}
   ],
-  behanceBanner:"laura/PORTADAS PROYECTOS/PORTADA BEHANCE.jpg", // portada del botón final a tu perfil
-  videos:[], // Videos de adelanto (opcional): ["assets/videos/reel-1.mp4"]
-  // Sitios web: img = portada (assets/projects/...), logo = archivo de LOGOS/ (opcional)
+  behanceBanner:"laura/PORTADAS PROYECTOS/PORTADA BEHANCE.jpg",
+  videos:[],
   web:[
     {t:"Brunello House",u:"https://www.behance.net/gallery/230681485/Realizacion-website-Brunello-House",img:"assets/projects/brunello-house.jpg",logo:"",txt:"Brunello"},
     {t:"Ahomas Sanación",u:"https://www.behance.net/gallery/230681119/Sitio-web-realizado-para-Ahomas-Sanacion",img:"assets/projects/ahomas.jpg",logo:"AHOMAS.jpg"},
     {t:"Zaria Realty Group",u:"https://www.behance.net/gallery/230679461/Sitio-Web-Realizado-Para-Zaria-Realty-Group",img:"assets/projects/zaria.jpg",logo:"ZARAREALTY.jpg"},
     {t:"Colony Springs Medical Center",u:"https://colonyspringsmedical.com/",img:"assets/projects/colony-springs.jpg",logo:"COLONY.jpg"}
   ],
-  // Instagram (se ve como tu perfil). Cambia los números cuando quieras
   ig:{user:"laurafranco_creativa",url:"https://www.instagram.com/laurafranco_creativa",seguidores:"1063",seguidos:"444",
       name:"LauraOFranco | Marketing de Contenido y Diseño 🎨",
       bio:["✨ Diseñadora de contenido | Meta ADS","🎥 Editora de videos | Landing Pages","⬆️ Te ayudo a destacar tu marca","📍 Medellín"],
       avatar:"assets/instagram/avatar.jpg",
       usuarioList:["assets/instagram/usuario-instagram.png","FEED INSTAGRAM/USUARIO INSTAGRAM.png"],
       feedList:["assets/instagram/feed-instagram.jpg","FEED INSTAGRAM/FEED INSTAGRAM.png"]},
-  // Publicaciones: sube capturas a assets/instagram/ (ig-1.jpg … ig-6.jpg). Las que no existan no se muestran
   igPosts:[
     {img:"assets/instagram/ig-1.jpg",u:""},{img:"assets/instagram/ig-2.jpg",u:""},{img:"assets/instagram/ig-3.jpg",u:""},
     {img:"assets/instagram/ig-4.jpg",u:""},{img:"assets/instagram/ig-5.jpg",u:""},{img:"assets/instagram/ig-6.jpg",u:""}
   ],
   linkedin:{url:"https://www.linkedin.com/in/lauraocampofranco-ab576623a",name:"Laura Ocampo Franco",
       headline:"Marketing digital · Meta Ads · Diseño | Fundadora de Tres y Nueve Creativo",
-      foto:"laura/laura.jpg.jpg", logo:"LOGOS/LINKEDIN.jpg",   // tu foto de perfil
-      banner:"assets/images/linkedin-banner.jpg"}, // opcional: portada de tu LinkedIn
-  // Logos de marcas: [nombre, archivo dentro de LOGOS/, sector]
+      foto:"laura/laura.jpg.jpg", logo:"LOGOS/LINKEDIN.jpg",
+      banner:"assets/images/linkedin-banner.jpg"},
   marcas:[
     ["Zaria Realty Group","ZARAREALTY.jpg","Real estate"],["Fortex Realty","FORTEX.jpg","Real estate"],
     ["Innovation Mortgage","INNOVATION.jpg","Real estate"],["Miami Tax Team","MIAMI TAXTEAM.jpg","Real estate"],
@@ -58,7 +53,6 @@ const E=encodeURI,pal=["#9fd8e6","#c9b3f0","#f6b8d1","#b8ecd2"];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const IMG=(src,alt="",rm="this.remove()")=>src?`<img src="${E(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="${rm}">`:"";
 const mail=(window.CONFIG&&CONFIG.email)||"lawriztfios99@gmail.com";
-/* Carga la primera imagen que exista y le recorta los bordes transparentes */
 const trim=src=>new Promise(res=>{const im=new Image();im.onload=()=>{try{
   const w=im.naturalWidth,h=im.naturalHeight,c=document.createElement("canvas");c.width=w;c.height=h;
   const x=c.getContext("2d");x.drawImage(im,0,0);const d=x.getImageData(0,0,w,h).data;let t=h,b=-1,l=w,r=-1;
@@ -67,7 +61,7 @@ const trim=src=>new Promise(res=>{const im=new Image();im.onload=()=>{try{
   o.getContext("2d").drawImage(c,l,t,o.width,o.height,0,0,o.width,o.height);res(o.toDataURL("image/png"))}catch(e){res(E(src))}};
   im.onerror=()=>res(null);im.src=E(src)});
 const first=async l=>{for(const s of l){const r=await trim(s);if(r)return r}return null};
-const BEH="https://www.behance.net/lauraocampo99"; // tu perfil de Behance
+const BEH="https://www.behance.net/lauraocampo99";
 
 /* ---------- Estilos ---------- */
 document.head.insertAdjacentHTML("beforeend",`<style>
@@ -77,7 +71,7 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .more{margin-top:50px}.more .sub{margin-top:0}
 .lead.sm2{margin:6px 0 18px}
 
-/* QUIÉN SOY: más compacto, texto justificado y fotos grandes arriba */
+/* QUIÉN SOY */
 .about .grid{grid-template-columns:.95fr 1.05fr;align-items:center;gap:clamp(24px,4vw,56px)}
 .about .grid>.rv:last-child{display:flex;flex-direction:column}
 .about .polas{order:-1;margin:0 0 26px;gap:16px}
@@ -87,7 +81,7 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 @media(min-width:821px){.about .rv p{text-align:justify;hyphens:auto}.about .rv p.script{text-align:left}}
 @media(max-width:820px){.about .polas{margin-bottom:20px}}
 
-/* SERVICIOS: solo imagen, clic = Hablemos */
+/* SERVICIOS */
 .ejemplo{display:none!important}
 .panel .side{align-self:stretch}
 .panel .sv-img{height:100%;min-height:260px;aspect-ratio:auto}
@@ -97,7 +91,7 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .svgo:hover span{background:var(--rosa);transform:translateY(-4px)}
 .sv-img img{transition:transform .6s}.sv-img:hover img{transform:scale(1.05)}
 
-/* PROYECTOS: tarjetas con portada */
+/* PROYECTOS */
 .bhg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
 .bc,.wcard{display:flex;flex-direction:column;border-radius:var(--radius);overflow:hidden;background:var(--bg2);border:1px solid rgba(255,255,255,.1);transition:.3s}
 .bc:hover,.wcard:hover{transform:translateY(-8px) rotate(-.8deg);border-color:var(--c)}
@@ -126,15 +120,12 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .vids{display:flex;gap:14px;overflow-x:auto;margin-top:16px;padding-bottom:8px}
 .vids video{flex:0 0 min(200px,56vw);aspect-ratio:9/16;border-radius:18px;object-fit:cover;background:var(--bg2)}
 
-/* REDES: Instagram simplificado + LinkedIn */
+/* REDES */
 .sgrid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:stretch}
-
-/* Instagram sin cuadro negro */
 .ig{display:flex;flex-direction:column;align-items:flex-start;gap:16px;transition:.3s;background:transparent;border:none;padding:0}
 .ig-top{display:flex;align-items:center;gap:12px;margin-bottom:6px}
 .ig-top img{width:42px;height:42px;object-fit:contain;border-radius:10px}
 .ig-top span{font-size:1.15rem;font-weight:800;color:#fff}
-
 .igh{display:flex;gap:clamp(14px,3vw,28px);align-items:center;flex-wrap:wrap;margin-bottom:20px}
 .igh .av{width:clamp(76px,14vw,110px);aspect-ratio:1;border-radius:50%;object-fit:cover;border:3px solid var(--lila);background:var(--lila);flex:none}
 .igh .info{flex:1;min-width:200px}
@@ -157,14 +148,14 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .lin .in{color:var(--mar);font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
 @media(max-width:900px){.sgrid{grid-template-columns:1fr}}
 
-/* HERRAMIENTAS: solo logos, grandes */
+/* HERRAMIENTAS */
 .tools{grid-template-columns:repeat(auto-fill,minmax(104px,1fr))}
 .tool{padding:12px}.tool span{display:none}
 .tool i{width:100%;height:auto;aspect-ratio:1;margin:0;border-radius:16px;background:#fff;padding:14px;max-width:92px;margin:0 auto}
 .tool i img{width:100%;height:100%;object-fit:contain;border-radius:10px}
 @media(max-width:520px){.tools{grid-template-columns:repeat(3,1fr);gap:10px}.tool{padding:8px}}
 
-/* MARCAS: logos grandes en carrusel */
+/* MARCAS */
 .mq{overflow:hidden;margin-top:22px;border-radius:var(--radius);padding:18px 0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1)}
 .mq .trk{display:flex;gap:18px;width:max-content;animation:slide 45s linear infinite}
 .mq:hover .trk{animation-play-state:paused}
@@ -174,7 +165,7 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 @media(max-width:600px){.lg2{width:116px;height:92px;border-radius:16px}.lg2 img{width:58px;height:58px}.mq .trk{gap:12px}}
 
 .ig:hover{transform:translateY(-6px)}
-.igf{width:100%;height:auto;border-radius:14px;box-shadow: 0 4px 15px rgba(0,0,0,0.2)}
+.igf{width:100%;height:auto;border-radius:14px;box-shadow:0 4px 15px rgba(0,0,0,0.2)}
 .lin .bn.lg{background:#fff;height:130px;display:grid;place-items:center}
 .lin .bn.lg img{object-fit:contain;padding:16px}
 .bc.wide{margin-top:18px}.bc.wide .cv{aspect-ratio:16/6;min-height:150px;flex:none}
@@ -182,6 +173,35 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .tl.now{border-color:var(--rosa);box-shadow:0 0 0 1px var(--rosa),0 18px 40px rgba(246,184,209,.12)}
 .tl.now .nuevo{display:inline-block;margin-left:8px;background:var(--rosa);color:#2a2a2c;font-size:.66rem;font-weight:800;padding:3px 10px;border-radius:999px}
 .quick{margin-top:16px}.fcontact{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:18px}
+
+/* =====================================================
+   AJUSTES MÓVIL (foto sin cortar, sin zoom raro)
+   ===================================================== */
+html,body{overflow-x:hidden;max-width:100%}
+body{overscroll-behavior-x:none}
+.hero{overflow:hidden}
+.hero .wrap{max-width:100%}
+.frame img{object-position:center 12%}
+
+@media(max-width:820px){
+  .photo{width:min(300px,82%);margin-top:6px}
+  .frame{border-radius:150px 150px 24px 24px}
+
+  /* stickers pequeños y fuera de la cara */
+  .sticker{font-size:.7rem;padding:6px 11px;max-width:70vw}
+  .s2{top:50%;right:auto;left:-12px}
+  .s1{left:auto;right:-12px;bottom:70px}
+  .s3{right:auto;left:-4px;bottom:16px}
+
+  /* muñeca y decoración dentro de pantalla */
+  .doll{left:-22px;top:-20px;width:76px}
+  .blob{max-width:60vw;max-height:60vw}
+  .b1{left:-60px}.b2{right:-50px}
+  .fl{max-width:22vw}
+
+  /* menús y filtros sin desbordar */
+  .tabs,.filters{margin-inline:0;padding-inline:0}
+}
 </style>`);
 
 /* ---------- 1. QUIÉN SOY (resumido) ---------- */
@@ -193,7 +213,7 @@ q.insertAdjacentHTML("beforeend",`
 <p>Junto a mi equipo de <b>Tres y Nueve Creativo</b> creamos estrategias que generan visibilidad, atraen clientes y aportan resultados reales.</p>
 <p class="script">¡Estamos aquí para llevar tu marca al siguiente nivel!</p>`);}
 
-/* ---------- 2. HERRAMIENTAS (solo logos) y MARCAS ---------- */
+/* ---------- 2. HERRAMIENTAS y MARCAS ---------- */
 $$(".tool").forEach(t=>{const n=t.querySelector("span")?.textContent,f=D.tools[n];
   if(f){t.title=n;t.querySelector("i").innerHTML=IMG("LOGOS/"+f,n);} else t.remove();});
 
@@ -234,7 +254,7 @@ ${D.videos.length?`<div class="vids">${D.videos.map(v=>`<video src="${E(v)}#t=0.
 <div class="bd"><h3>${esc(w.t)}</h3><span>Ver proyecto ↗</span></div></a>`).join("")}</div>
 <a class="bc wide" href="${BEH}" target="_blank" rel="noopener" style="--c:#f6b8d1"><div class="cv mock">${mock("web")}${IMG(D.behanceBanner,"Mi perfil de Behance")}<span class="ob">Behance ↗</span></div><div class="bd"><h3>Mi portafolio completo en Behance</h3><span>Explorar más trabajos ↗</span></div></a></div>`);}
 
-/* ---------- 5. Instagram (como tu perfil) + LinkedIn ---------- */
+/* ---------- 5. Instagram + LinkedIn ---------- */
 const hab=$("#herramientas");
 if(hab){const g=D.ig,l=D.linkedin;
 hab.insertAdjacentHTML("beforebegin",`<section id="redes"><div class="wrap">
@@ -252,7 +272,6 @@ hab.insertAdjacentHTML("beforebegin",`<section id="redes"><div class="wrap">
 <div class="bd2"><span class="in">Mi trayectoria</span><h3>${esc(l.name)}</h3><p>${esc(l.headline)}</p><span class="btn fill sm">Entra a LinkedIn ↗</span></div></a>
 </div></div></section>`);
 
-// Solo cargamos la foto del feed con tus imágenes lilas, el encabezado ya es tu logo limpio
 first(g.feedList).then(u=>{const e=$(".igf");if(u&&e){e.src=u;e.hidden=false}});}
 
 /* ---------- 6. EXPERIENCIA ---------- */
