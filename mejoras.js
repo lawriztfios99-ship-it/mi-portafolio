@@ -1,5 +1,5 @@
 /* =========================================================
-   MEJORAS DEL PORTAFOLIO v5 · Lau Ocampo · Tres y Nueve Creativo
+   MEJORAS DEL PORTAFOLIO v6 · Lau Ocampo · Tres y Nueve Creativo
    Se carga DESPUÉS del script principal del index.html:
    <script src="mejoras.js"></script>   (justo antes de </body>)
    Para agregar proyectos, marcas o fotos solo edita la zona DATOS.
@@ -51,7 +51,7 @@ const D={
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const E=encodeURI,pal=["#9fd8e6","#c9b3f0","#f6b8d1","#b8ecd2"];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const IMG=(src,alt="",rm="this.remove()")=>src?`<img src="${E(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="${rm}">`:"";
+const IMG=(src,alt="",rm="this.remove()")=>src?`<img src="${E(src)}" alt="${esc(alt)}" decoding="async" onerror="${rm}">`:"";
 const mail=(window.CONFIG&&CONFIG.email)||"lawriztfios99@gmail.com";
 const trim=src=>new Promise(res=>{const im=new Image();im.onload=()=>{try{
   const w=im.naturalWidth,h=im.naturalHeight,c=document.createElement("canvas");c.width=w;c.height=h;
@@ -181,32 +181,24 @@ body{overflow-x:clip}
 .hero{overflow:clip}
 .hero .wrap{max-width:100%}
 .frame img{object-position:center 12%}
-
-/* texto que se escribe: altura fija para que nada salte */
 .role{min-height:1.7em}
 
-/* PC: las fotos flotantes se ocultan si pueden tapar el texto */
 @media(min-width:821px) and (max-width:1399px){.fl{display:none}}
 @media(min-width:1400px){.sticker{transition:transform .25s ease-out}}
 
-/* CELULAR / TÁCTIL */
 @media(max-width:820px){
   .role{min-height:3.4em;display:flex;align-items:flex-start;justify-content:center}
-
   .photo{width:min(300px,82%);margin-top:6px}
   .frame{border-radius:150px 150px 24px 24px}
-
   .sticker{font-size:.7rem;padding:6px 11px;max-width:70vw}
   .s2{top:50%;right:auto;left:-12px}
   .s1{left:auto;right:-12px;bottom:70px}
   .s3{right:auto;left:-4px;bottom:16px}
-
   .doll{left:-22px;top:-20px;width:76px}
   .fl{max-width:22vw}
   .tabs,.filters{margin-inline:0;padding-inline:0}
 }
 
-/* quitar efectos pesados en pantallas táctiles (evita fallos al hacer zoom) */
 @media(hover:none),(max-width:820px){
   body{background-image:none}
   .blob{animation:none;filter:blur(40px);opacity:.22;max-width:60vw;max-height:60vw}
@@ -228,12 +220,27 @@ body:not(.go){overflow:hidden}
   .doll{animation:none}
 }
 
-/* texto justificado en todas las pantallas */
 .about .rv p{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
 .about .rv p.script{text-align:left}
 
-/* protección básica de imágenes (sin bloquear clics en enlaces) */
 img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+
+/* =====================================================
+   AJUSTES v6 (Samsung, Xiaomi y cualquier celular)
+   ===================================================== */
+html{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;color-scheme:dark}
+.grid>*,.panel>*,.sgrid>*,.contact .box>*,.bhg>*,.webg>*{min-width:0}
+.btn{max-width:100%;overflow-wrap:anywhere}
+.links2{max-width:100%}
+
+@media(max-width:820px){
+  .wrap{width:calc(100% - 44px)}
+  nav{padding-inline:16px}
+  .bar{max-width:100%}
+  .contact .box{padding:26px 20px}
+  .hero h1{max-width:100%}
+  .about .rv p{text-align:left;hyphens:manual;-webkit-hyphens:manual}
+}
 </style>`);
 
 /* ---------- 1. QUIÉN SOY (resumido) ---------- */
@@ -326,4 +333,20 @@ const ft=$("footer");if(ft)ft.insertAdjacentHTML("afterbegin",row("pills fcontac
 document.addEventListener("contextmenu",e=>{if(e.target.closest&&e.target.closest("img,video"))e.preventDefault()});
 document.addEventListener("dragstart",e=>{if(e.target.tagName==="IMG")e.preventDefault()});
 new MutationObserver(()=>document.querySelectorAll("video:not([controlslist])").forEach(v=>{v.setAttribute("controlsList","nodownload");v.setAttribute("disablePictureInPicture","")})).observe(document.body,{childList:true,subtree:true});
+
+/* ---------- 9. Diagnóstico: abre la página con ?debug al final ---------- */
+if(location.search.includes("debug")){
+  addEventListener("load",()=>setTimeout(()=>{
+    const W=document.documentElement.clientWidth,bad=[];
+    document.querySelectorAll("body *").forEach(el=>{
+      const r=el.getBoundingClientRect();
+      if(r.width&&(r.right>W+2||r.left<-2)){
+        let p=el.parentElement,clipped=false;
+        while(p&&p!==document.body){const o=getComputedStyle(p);if(/(hidden|clip|auto|scroll)/.test(o.overflowX)){clipped=true;break}p=p.parentElement}
+        if(!clipped){el.style.outline="3px solid red";bad.push((el.className||el.tagName)+" ("+Math.round(r.right)+"px)")}
+      }
+    });
+    alert(bad.length?"Se salen de la pantalla:\n"+bad.slice(0,8).join("\n"):"Nada se desborda ✅");
+  },3000));
+}
 })();
