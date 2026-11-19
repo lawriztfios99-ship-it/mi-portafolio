@@ -18,7 +18,7 @@ const D={
   videos:[], // Videos de adelanto (opcional): ["assets/videos/reel-1.mp4"]
   // Sitios web: img = portada (assets/projects/...), logo = archivo de LOGOS/ (opcional)
   web:[
-    {t:"Brunello House",u:"https://www.behance.net/gallery/230681485/Realizacion-website-Brunello-House",img:"assets/projects/brunello-house.jpg",logo:""},
+    {t:"Brunello House",u:"https://www.behance.net/gallery/230681485/Realizacion-website-Brunello-House",img:"assets/projects/brunello-house.jpg",logo:"",txt:"Brunello"},
     {t:"Ahomas Sanación",u:"https://www.behance.net/gallery/230681119/Sitio-web-realizado-para-Ahomas-Sanacion",img:"assets/projects/ahomas.jpg",logo:"AHOMAS.jpg"},
     {t:"Zaria Realty Group",u:"https://www.behance.net/gallery/230679461/Sitio-Web-Realizado-Para-Zaria-Realty-Group",img:"assets/projects/zaria.jpg",logo:"ZARAREALTY.jpg"},
     {t:"Colony Springs Medical Center",u:"https://colonyspringsmedical.com/",img:"assets/projects/colony-springs.jpg",logo:"COLONY.jpg"}
@@ -28,7 +28,8 @@ const D={
       name:"LauraOFranco | Marketing de Contenido y Diseño 🎨",
       bio:["✨ Diseñadora de contenido | Meta ADS","🎥 Editora de videos | Landing Pages","⬆️ Te ayudo a destacar tu marca","📍 Medellín"],
       avatar:"assets/instagram/avatar.jpg",
-      usuario:"assets/instagram/usuario-instagram.png", feed:"assets/instagram/feed-instagram.jpg"},
+      usuarioList:["assets/instagram/usuario-instagram.png","FEED INSTAGRAM/USUARIO INSTAGRAM.png"],
+      feedList:["assets/instagram/feed-instagram.jpg","FEED INSTAGRAM/FEED INSTAGRAM.png"]},
   // Publicaciones: sube capturas a assets/instagram/ (ig-1.jpg … ig-6.jpg). Las que no existan no se muestran
   igPosts:[
     {img:"assets/instagram/ig-1.jpg",u:""},{img:"assets/instagram/ig-2.jpg",u:""},{img:"assets/instagram/ig-3.jpg",u:""},
@@ -57,6 +58,15 @@ const E=encodeURI,pal=["#9fd8e6","#c9b3f0","#f6b8d1","#b8ecd2"];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const IMG=(src,alt="",rm="this.remove()")=>src?`<img src="${E(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" onerror="${rm}">`:"";
 const mail=(window.CONFIG&&CONFIG.email)||"lawriztfios99@gmail.com";
+/* Carga la primera imagen que exista y le recorta los bordes transparentes */
+const trim=src=>new Promise(res=>{const im=new Image();im.onload=()=>{try{
+  const w=im.naturalWidth,h=im.naturalHeight,c=document.createElement("canvas");c.width=w;c.height=h;
+  const x=c.getContext("2d");x.drawImage(im,0,0);const d=x.getImageData(0,0,w,h).data;let t=h,b=-1,l=w,r=-1;
+  for(let y=0;y<h;y++)for(let i=0;i<w;i++)if(d[(y*w+i)*4+3]>8){if(y<t)t=y;if(y>b)b=y;if(i<l)l=i;if(i>r)r=i}
+  if(b<0)return res(E(src));const o=document.createElement("canvas");o.width=r-l+1;o.height=b-t+1;
+  o.getContext("2d").drawImage(c,l,t,o.width,o.height,0,0,o.width,o.height);res(o.toDataURL("image/png"))}catch(e){res(E(src))}};
+  im.onerror=()=>res(null);im.src=E(src)});
+const first=async l=>{for(const s of l){const r=await trim(s);if(r)return r}return null};
 const BEH="https://www.behance.net/lauraocampo99"; // tu perfil de Behance
 
 /* ---------- Estilos ---------- */
@@ -88,12 +98,10 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .sv-img img{transition:transform .6s}.sv-img:hover img{transform:scale(1.05)}
 
 /* PROYECTOS: tarjetas con portada */
-.bhg{display:grid;grid-template-columns:1.25fr 1fr;gap:16px}
+.bhg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
 .bc,.wcard{display:flex;flex-direction:column;border-radius:var(--radius);overflow:hidden;background:var(--bg2);border:1px solid rgba(255,255,255,.1);transition:.3s}
 .bc:hover,.wcard:hover{transform:translateY(-8px) rotate(-.8deg);border-color:var(--c)}
-.bc.big{grid-row:span 2}
-.cv{position:relative;flex:1;min-height:170px;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,var(--c),rgba(255,255,255,.06))}
-.bc.big .cv{aspect-ratio:auto;min-height:300px}
+.cv{position:relative;flex:none;min-height:0;aspect-ratio:5/3;overflow:hidden;background:linear-gradient(135deg,var(--c),rgba(255,255,255,.06))}
 .cv>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;transition:transform .6s}
 .bc:hover .cv>img,.wcard:hover .cv>img{transform:scale(1.07)}
 .ob{position:absolute;top:12px;right:12px;z-index:3;background:rgba(42,42,44,.85);color:#fff;font-weight:800;font-size:.72rem;padding:6px 12px;border-radius:999px}
@@ -111,12 +119,12 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .browser u img{max-width:80%;max-height:38px;object-fit:contain}
 .browser em{display:block;height:7px;border-radius:4px;background:var(--c);margin-top:8px;width:70%}
 .browser em+em{width:45%;background:#fff;opacity:.4}
+.browser u b{font-family:"Archivo Black",sans-serif;color:#2a2a2c;font-size:1.05rem;letter-spacing:.05em}
 .bd{padding:14px 18px 18px}.bd h3{font-size:1.02rem;margin-bottom:4px}.bd p{color:var(--muted);font-size:.85rem;margin-bottom:6px}
 .bd span{color:var(--c);font-weight:800;font-size:.82rem}
 .webg{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:16px}
 .vids{display:flex;gap:14px;overflow-x:auto;margin-top:16px;padding-bottom:8px}
 .vids video{flex:0 0 min(200px,56vw);aspect-ratio:9/16;border-radius:18px;object-fit:cover;background:var(--bg2)}
-@media(max-width:820px){.bhg{grid-template-columns:1fr}.bc.big{grid-row:auto}.bc.big .cv{aspect-ratio:16/10;min-height:0}}
 
 /* REDES: Instagram como perfil real + LinkedIn */
 .sgrid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:stretch}
@@ -144,9 +152,9 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 @media(max-width:900px){.sgrid{grid-template-columns:1fr}}
 
 /* HERRAMIENTAS: solo logos, grandes */
-.tools{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+.tools{grid-template-columns:repeat(auto-fill,minmax(104px,1fr))}
 .tool{padding:12px}.tool span{display:none}
-.tool i{width:100%;height:auto;aspect-ratio:1;margin:0;border-radius:16px;background:#fff;padding:8px}
+.tool i{width:100%;height:auto;aspect-ratio:1;margin:0;border-radius:16px;background:#fff;padding:14px;max-width:92px;margin:0 auto}
 .tool i img{width:100%;height:100%;object-fit:contain;border-radius:10px}
 @media(max-width:520px){.tools{grid-template-columns:repeat(3,1fr);gap:10px}.tool{padding:8px}}
 
@@ -154,10 +162,10 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .mq{overflow:hidden;margin-top:22px;border-radius:var(--radius);padding:18px 0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1)}
 .mq .trk{display:flex;gap:18px;width:max-content;animation:slide 45s linear infinite}
 .mq:hover .trk{animation-play-state:paused}
-.lg2{width:240px;height:150px;flex:none;display:grid;place-items:center;background:#fff;border-radius:20px;overflow:hidden;transition:.3s}
-.lg2 img{width:100%;height:100%;object-fit:contain;transform:scale(1.2);transition:.4s}
+.lg2{width:150px;height:116px;flex:none;display:grid;place-items:center;background:#fff;border-radius:20px;overflow:hidden;transition:.3s}
+.lg2 img{width:72px;height:72px;object-fit:contain}
 .lg2:hover{transform:translateY(-6px) rotate(-1.5deg)}
-@media(max-width:600px){.lg2{width:170px;height:106px;border-radius:16px}.mq .trk{gap:12px}}
+@media(max-width:600px){.lg2{width:116px;height:92px;border-radius:16px}.lg2 img{width:58px;height:58px}.mq .trk{gap:12px}}
 
 .ig{display:flex;flex-direction:column;align-items:flex-start;gap:16px;transition:.3s}
 .ig:hover{transform:translateY(-6px);border-color:var(--lila)}
@@ -218,7 +226,7 @@ ${D.videos.length?`<div class="vids">${D.videos.map(v=>`<video src="${E(v)}#t=0.
 <div class="more rv in"><div class="sub">Diseño y desarrollo web</div>
 <p class="lead sm2">Sitios y landing pages que he desarrollado. Toca uno para verlo.</p>
 <div class="webg">${D.web.map((w,i)=>`<a class="wcard" href="${w.u}" target="_blank" rel="noopener" style="--c:${pal[i%4]}">
-<div class="cv mock"><div class="browser"><s></s><s></s><s></s><u>${IMG("LOGOS/"+w.logo,w.t)}</u><em></em><em></em></div>${IMG(w.img,w.t)}<span class="ob">Ver sitio ↗</span></div>
+<div class="cv mock"><div class="browser"><s></s><s></s><s></s><u>${w.logo?IMG("LOGOS/"+w.logo,w.t):`<b>${esc(w.txt||w.t)}</b>`}</u><em></em><em></em></div>${IMG(w.img,w.t)}<span class="ob">Ver sitio ↗</span></div>
 <div class="bd"><h3>${esc(w.t)}</h3><span>Ver proyecto ↗</span></div></a>`).join("")}</div>
 <a class="bc wide" href="${BEH}" target="_blank" rel="noopener" style="--c:#f6b8d1"><div class="cv mock">${mock("web")}${IMG(D.behanceBanner,"Mi perfil de Behance")}<span class="ob">Behance ↗</span></div><div class="bd"><h3>Mi portafolio completo en Behance</h3><span>Explorar más trabajos ↗</span></div></a></div>`);}
 
@@ -229,13 +237,15 @@ hab.insertAdjacentHTML("beforebegin",`<section id="redes"><div class="wrap">
 <div class="eyebrow rv in"><i class="star"></i> Redes</div><h2 class="rv in">Sígueme y <span class="grad">conoce más</span></h2>
 <div class="sgrid">
 <a class="ig rv in" href="${g.url}" target="_blank" rel="noopener" aria-label="Ver mi Instagram">
-${IMG(g.usuario,"Mi perfil de Instagram").replace("<img",'<img class="igu"')}
-${IMG(g.feed,"Mi feed de Instagram").replace("<img",'<img class="igf"')}
+<img class="igu" alt="Mi perfil de Instagram" hidden>
+<img class="igf" alt="Mi feed de Instagram" hidden>
 <span class="btn fill sm">Ver Instagram ↗</span></a>
 <a class="lin rv in" href="${l.url}" target="_blank" rel="noopener" aria-label="Ver mi LinkedIn">
 <div class="bn lg">${IMG(l.logo,"LinkedIn")}</div>${IMG(l.foto,l.name).replace("<img",'<img class="av2"')}
 <div class="bd2"><span class="in">Mi trayectoria</span><h3>${esc(l.name)}</h3><p>${esc(l.headline)}</p><span class="btn fill sm">Entra a LinkedIn ↗</span></div></a>
-</div></div></section>`);}
+</div></div></section>`);
+first(g.usuarioList).then(u=>{const e=$(".igu");if(u&&e){e.src=u;e.hidden=false}});
+first(g.feedList).then(u=>{const e=$(".igf");if(u&&e){e.src=u;e.hidden=false}});}
 
 /* ---------- 6. EXPERIENCIA ---------- */
 const exp=$("#exp");
