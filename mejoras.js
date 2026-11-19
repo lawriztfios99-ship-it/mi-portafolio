@@ -1,5 +1,5 @@
 /* =========================================================
-   MEJORAS DEL PORTAFOLIO v3 · Lau Ocampo · Tres y Nueve Creativo
+   MEJORAS DEL PORTAFOLIO v5 · Lau Ocampo · Tres y Nueve Creativo
    Se carga DESPUÉS del script principal del index.html:
    <script src="mejoras.js"></script>   (justo antes de </body>)
    Para agregar proyectos, marcas o fotos solo edita la zona DATOS.
@@ -78,7 +78,6 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .about .pola{padding:9px 9px 30px}
 .about .stats{gap:12px}.about .stat{padding:16px 18px}
 .about .stat b{font-size:clamp(1.6rem,3.6vw,2.2rem)}
-@media(min-width:821px){.about .rv p{text-align:justify;hyphens:auto}.about .rv p.script{text-align:left}}
 @media(max-width:820px){.about .polas{margin-bottom:20px}}
 
 /* SERVICIOS */
@@ -216,6 +215,25 @@ body{overflow-x:clip}
   #glow{display:none}
   .bar{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(42,42,44,.96)}
 }
+
+/* =====================================================
+   AJUSTES v5
+   ===================================================== */
+html,body{touch-action:pan-y;overscroll-behavior:none}
+body:not(.go){overflow:hidden}
+
+@media(max-width:820px){
+  .about .grid{grid-template-columns:1fr}
+  body.go .hero h1 .l{animation-timing-function:ease-out}
+  .doll{animation:none}
+}
+
+/* texto justificado en todas las pantallas */
+.about .rv p{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
+.about .rv p.script{text-align:left}
+
+/* protección básica de imágenes (sin bloquear clics en enlaces) */
+img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 </style>`);
 
 /* ---------- 1. QUIÉN SOY (resumido) ---------- */
@@ -303,4 +321,9 @@ const row=cls=>`<div class="${cls}">${links().map(([n,u],i)=>`<a href="${u}" ${u
 const bh=$("#bh");if(bh)bh.href=BEH;
 const btns=$(".hero .btns");if(btns)btns.insertAdjacentHTML("afterend",row("pills quick"));
 const ft=$("footer");if(ft)ft.insertAdjacentHTML("afterbegin",row("pills fcontact"));
+
+/* ---------- 8. Protección básica de imágenes y videos ---------- */
+document.addEventListener("contextmenu",e=>{if(e.target.closest&&e.target.closest("img,video"))e.preventDefault()});
+document.addEventListener("dragstart",e=>{if(e.target.tagName==="IMG")e.preventDefault()});
+new MutationObserver(()=>document.querySelectorAll("video:not([controlslist])").forEach(v=>{v.setAttribute("controlsList","nodownload");v.setAttribute("disablePictureInPicture","")})).observe(document.body,{childList:true,subtree:true});
 })();
