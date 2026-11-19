@@ -175,32 +175,46 @@ document.head.insertAdjacentHTML("beforeend",`<style>
 .quick{margin-top:16px}.fcontact{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:18px}
 
 /* =====================================================
-   AJUSTES MÓVIL (foto sin cortar, sin zoom raro)
+   AJUSTES v4 (estabilidad en móvil y PC)
    ===================================================== */
-html,body{overflow-x:hidden;max-width:100%}
-body{overscroll-behavior-x:none}
-.hero{overflow:hidden}
+html,body{max-width:100%}
+body{overflow-x:clip}
+.hero{overflow:clip}
 .hero .wrap{max-width:100%}
 .frame img{object-position:center 12%}
 
+/* texto que se escribe: altura fija para que nada salte */
+.role{min-height:1.7em}
+
+/* PC: las fotos flotantes se ocultan si pueden tapar el texto */
+@media(min-width:821px) and (max-width:1399px){.fl{display:none}}
+@media(min-width:1400px){.sticker{transition:transform .25s ease-out}}
+
+/* CELULAR / TÁCTIL */
 @media(max-width:820px){
+  .role{min-height:3.4em;display:flex;align-items:flex-start;justify-content:center}
+
   .photo{width:min(300px,82%);margin-top:6px}
   .frame{border-radius:150px 150px 24px 24px}
 
-  /* stickers pequeños y fuera de la cara */
   .sticker{font-size:.7rem;padding:6px 11px;max-width:70vw}
   .s2{top:50%;right:auto;left:-12px}
   .s1{left:auto;right:-12px;bottom:70px}
   .s3{right:auto;left:-4px;bottom:16px}
 
-  /* muñeca y decoración dentro de pantalla */
   .doll{left:-22px;top:-20px;width:76px}
-  .blob{max-width:60vw;max-height:60vw}
-  .b1{left:-60px}.b2{right:-50px}
   .fl{max-width:22vw}
-
-  /* menús y filtros sin desbordar */
   .tabs,.filters{margin-inline:0;padding-inline:0}
+}
+
+/* quitar efectos pesados en pantallas táctiles (evita fallos al hacer zoom) */
+@media(hover:none),(max-width:820px){
+  body{background-image:none}
+  .blob{animation:none;filter:blur(40px);opacity:.22;max-width:60vw;max-height:60vw}
+  .b1{left:-60px}.b2{right:-50px}
+  .fl .in{animation:none}
+  #glow{display:none}
+  .bar{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(42,42,44,.96)}
 }
 </style>`);
 
