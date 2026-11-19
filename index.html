@@ -880,5 +880,6 @@ const aLinks=$$(".links a");
 const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)aLinks.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id&&!a.classList.contains("cta")))}),{rootMargin:"-45% 0px -50% 0px"});
 $$("section,header").forEach(s=>s.id&&so.observe(s));
 </script>
+<script src="mejoras.js"></script>
 </body>
 </html>
