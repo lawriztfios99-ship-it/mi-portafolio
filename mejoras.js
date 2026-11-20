@@ -51,7 +51,7 @@ const D={
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const E=encodeURI,pal=["#9fd8e6","#c9b3f0","#f6b8d1","#b8ecd2"];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const IMG=(src,alt="",rm="this.remove()")=>src?`<img src="${E(src)}" alt="${esc(alt)}" decoding="async" onerror="${rm}">`:"";
+const IMG=(src,alt="",rm="this.remove()")=>src?`<img src="${E(src.replace(/^LOGOS\//,"LOGOS NUEVOS/"))}" alt="${esc(alt)}" decoding="async" onerror="${rm}">`:"";
 const mail=(window.CONFIG&&CONFIG.email)||"lawriztfios99@gmail.com";
 const trim=src=>new Promise(res=>{const im=new Image();im.onload=()=>{try{
   const w=im.naturalWidth,h=im.naturalHeight,c=document.createElement("canvas");c.width=w;c.height=h;
