@@ -301,7 +301,7 @@ hab.insertAdjacentHTML("beforebegin",`<section id="redes"><div class="wrap">
 <div class="sgrid">
 <a class="ig rv in" href="${g.url}" target="_blank" rel="noopener" aria-label="Ver mi Instagram">
 <div class="ig-top">
-  ${IMG("LOGOS/LOGO INSTAGRAM.jpg","Instagram")}
+    ${IMG("LOGOS/INSTAGRAM.jpg","Instagram")}
   <span>@${g.user}</span>
 </div>
 <img class="igf" alt="Mi feed de Instagram" hidden>
